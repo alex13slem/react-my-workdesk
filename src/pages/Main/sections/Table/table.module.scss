@@ -1,0 +1,52 @@
+@import "../../../../variables";
+
+.table {
+	position: relative;
+
+	height: 100vh;
+	overflow: hidden;
+
+	// background: url("@img/background.svg") 50% 100% / contain no-repeat;
+	.wrap {
+		position: relative;
+		z-index: 1;
+		height: 100%;
+
+		padding-inline: 80px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		// grid-template-rows: repeat(auto, auto);
+
+		@media (orientation: portrait) {
+			display: flex;
+			flex-direction: column;
+			gap: 5%;
+		}
+	}
+	.greeting {
+		grid-column: 1 / 3;
+		grid-row: 1 / 2;
+		p {
+			font-size: 250%;
+			cursor: default;
+
+			@media (orientation: portrait) {
+				text-align: right;
+			}
+		}
+	}
+
+	.bg {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 20%;
+	}
+	.flower-frame {
+		position: absolute;
+		width: 170px;
+		height: auto;
+		top: 22%;
+		right: 32%;
+	}
+}

@@ -1,0 +1,34 @@
+@import "../variables.scss";
+
+.body {
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: light) {
+  body,
+  a,
+  input,
+  button,
+  textarea {
+    color: $font-color_main;
+  }
+  .body {
+    background: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  a,
+  input,
+  button,
+  textarea {
+    color: #ffaf99;
+  }
+  .body {
+    background: #202124;
+  }
+}
