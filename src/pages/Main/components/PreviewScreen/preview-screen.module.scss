@@ -5,15 +5,16 @@
 	width: calc(50vh + 20%);
 	perspective: 150vh;
 
-	margin-bottom: 60px;
+	margin-bottom: 10%;
 	margin-left: 70px;
 
 	@media (max-aspect-ratio: 16 / 11) {
-		margin-bottom: 40px;
+		margin-bottom: 13%;
 	}
 
 	@media (orientation: portrait) {
-		width: calc(74vw + 20%);
+		// width: calc(74vw + 20%);
+		margin-inline: auto;
 	}
 
 	.desktop {
@@ -46,6 +47,12 @@
 			.screen {
 				overflow-y: overlay;
 				animation: prevScreenHover 0.6s ease-in-out infinite alternate;
+			}
+			.btn {
+				&-next,
+				&-prev {
+					opacity: 1;
+				}
 			}
 		}
 		&:hover ~ .tablet {
@@ -87,8 +94,16 @@
 				overflow: overlay;
 			}
 
-			.btn {
-				@keyframes prev-btn {
+			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				cursor: default;
+			}
+		}
+		.btn {
+			&-go {
+				@keyframes btn-go {
 					0%,
 					100% {
 						box-shadow: 0 0 4px 1px $color2;
@@ -97,13 +112,15 @@
 						box-shadow: 0 0 4px 3px $color2;
 					}
 				}
+
+				opacity: 0;
 				position: absolute;
 
 				border-radius: 8px;
 				background: transparent;
 
-				transition: 0.3s ease;
-				animation: prev-btn 1s ease infinite;
+				// transition: 0.3s ease;
+				animation: btn-go 1s ease infinite;
 
 				&:hover {
 					animation: none;
@@ -115,20 +132,42 @@
 				}
 			}
 
-			a {
-				display: block;
-				width: 100%;
-				height: 100%;
-				cursor: default;
+			&-next,
+			&-prev {
+				opacity: 0;
+				position: fixed;
+				top: 34%;
+				height: 50px;
+				width: 50px;
+				z-index: 2;
+				background: transparent;
+
+				transition: opacity 0.3s ease;
+
+				svg {
+					color: $color1;
+					filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+				}
+			}
+			&-prev {
+				left: 25px;
+			}
+			&-next {
+				right: 25px;
 			}
 		}
 	}
 
 	.tablet {
 		position: absolute;
+		// width: 17%;
+		// bottom: 9%;
+		// right: 16%;
+
 		width: 17%;
-		bottom: 9%;
-		right: 16%;
+		height: 29%;
+		bottom: 7%;
+		right: 15%;
 
 		@media (hover: none) {
 			display: none;
@@ -136,28 +175,28 @@
 
 		transition: 0.5s 0.3s ease;
 
-		img {
-			display: block;
-			width: 100%;
-			object-fit: contain;
-		}
-		.screen {
+		// svg {
+		// 	display: block;
+		// 	width: 100%;
+		// 	object-fit: contain;
+		// }
+		& > svg {
 			position: absolute;
-			width: 89%;
-			height: 81%;
-			top: 10%;
-			left: 6%;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
 
-			background: url("https://images.wallpaperscraft.ru/image/single/doroga_asfalt_pole_zelenyy_derevya_gory_zamok_45628_1920x1080.jpg")
-				0 0 / cover no-repeat;
+			// background: url("https://images.wallpaperscraft.ru/image/single/doroga_asfalt_pole_zelenyy_derevya_gory_zamok_45628_1920x1080.jpg")
+			// 	0 0 / cover no-repeat;
 
-			box-shadow: 0px 0px 6px 0px rgba(30, 52, 69, 0.87) inset;
+			// box-shadow: 0px 0px 6px 0px rgba(30, 52, 69, 0.87) inset;
 
-			a {
-				display: block;
-				width: 100%;
-				height: 100%;
-			}
+			// a {
+			// 	display: block;
+			// 	width: 100%;
+			// 	height: 100%;
+			// }
 		}
 	}
 
@@ -165,7 +204,8 @@
 		z-index: 1;
 		position: absolute;
 		width: 10%;
-		bottom: 8%;
+		height: 23%;
+		bottom: 6%;
 		right: 29%;
 
 		@media (hover: none) {
@@ -174,23 +214,18 @@
 
 		transition: 0.5s 0.3s ease;
 
-		img {
-			display: block;
-			width: 100%;
-			object-fit: contain;
-		}
+		// img {
+		// 	display: block;
+		// 	width: 100%;
+		// 	object-fit: contain;
+		// }
 
-		.screen {
+		& > svg {
 			position: absolute;
-			width: 87%;
-			height: 76%;
-			top: 11%;
-			left: 7%;
-
-			background: url("https://images.wallpaperscraft.ru/image/single/doroga_asfalt_pole_zelenyy_derevya_gory_zamok_45628_1920x1080.jpg")
-				0 0 / cover no-repeat;
-
-			box-shadow: 0px 0px 6px 0px rgba(30, 52, 69, 0.87) inset;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
 
 			a {
 				display: block;

@@ -1,15 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { React } from 'react'
 
 import css from './preview-screen.module.scss'
-
 import './components/Swiper/swiper.scss'
-
-import { Navigation, Pagination, EffectCube, EffectFade } from 'swiper'
-import {
-  Swiper,
-  SwiperSlide,
-  useSwiperSlide
-} from '/node_modules/swiper/react/swiper-react.js'
 
 import '/node_modules/swiper/swiper.scss'
 import '/node_modules/swiper/modules/navigation/navigation.scss'
@@ -22,6 +14,32 @@ import coronaDesk from './img/desktop/GoCorona.jpg'
 import spaceXDesk from './img/desktop/SpaceX.jpg'
 import zapovDesk from './img/desktop/Zapovednik.jpg'
 import uberDesk from './img/desktop/Uber.jpg'
+
+import galactTablet from './img/tablet/Galactigun.jpg'
+import coronaTablet from './img/tablet/GoCorona.jpg'
+import spaceXTablet from './img/tablet/SpaceX.jpg'
+import zapovTablet from './img/tablet/Zapovednik.jpg'
+import uberTablet from './img/tablet/Uber.jpg'
+
+import galactMobile from './img/mobile/Galactigun.jpg'
+import coronaMobile from './img/mobile/GoCorona.jpg'
+import spaceXMobile from './img/mobile/SpaceX.jpg'
+import zapovMobile from './img/mobile/Zapovednik.jpg'
+import uberMobile from './img/mobile/Uber.jpg'
+
+import { Navigation, EffectFade } from 'swiper'
+import {
+  Swiper,
+  SwiperSlide,
+  useSwiperSlide
+} from '/node_modules/swiper/react/swiper-react.js'
+import {
+  SwiperButtonGo,
+  SwiperButtonNext,
+  SwiperButtonPrev
+} from './components/Swiper/components/SwiperBtns'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
   const swiperImgs = {
@@ -81,10 +99,125 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
           height: '12.7%'
         }
       }
+    ],
+    tablet: [
+      {
+        id: 1,
+        src: galactTablet,
+        alt: 'Galactigun',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '37.6%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 2,
+        src: coronaTablet,
+        alt: 'GoCorona',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '31%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 3,
+        src: spaceXTablet,
+        alt: 'SpaceX',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '31%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 4,
+        src: zapovTablet,
+        alt: 'Zapovednik',
+        btnSizePos: {
+          bottom: '26.8%',
+          left: '11.7%',
+          width: '11.8%',
+          height: '26%'
+        }
+      },
+      {
+        id: 5,
+        src: uberTablet,
+        alt: 'UberEats',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.7%',
+          width: '37.9%',
+          height: '12.7%'
+        }
+      }
+    ],
+    mobile: [
+      {
+        id: 1,
+        src: galactMobile,
+        alt: 'Galactigun',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '37.6%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 2,
+        src: coronaMobile,
+        alt: 'GoCorona',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '31%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 3,
+        src: spaceXMobile,
+        alt: 'SpaceX',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.8%',
+          width: '31%',
+          height: '12.7%'
+        }
+      },
+      {
+        id: 4,
+        src: zapovMobile,
+        alt: 'Zapovednik',
+        btnSizePos: {
+          bottom: '26.8%',
+          left: '11.7%',
+          width: '11.8%',
+          height: '26%'
+        }
+      },
+      {
+        id: 5,
+        src: uberMobile,
+        alt: 'UberEats',
+        btnSizePos: {
+          bottom: '39.5%',
+          left: '11.7%',
+          width: '37.9%',
+          height: '12.7%'
+        }
+      }
     ]
   }
 
-  const swiperSlide = useSwiperSlide()
+  // const swiperSlide = useSwiperSlide()
+  // const swiper = useSwiper()
 
   return (
     <div
@@ -157,13 +290,26 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
           {swiperImgs.desktop.map(({ id, src, alt, btnSizePos }) => (
             <SwiperSlide key={id} className={css['slide']}>
               <img src={src} alt={alt} />
-              <button className={css['btn']} style={btnSizePos}></button>
+              <SwiperButtonGo
+                className={css['btn-go']}
+                style={btnSizePos}></SwiperButtonGo>
             </SwiperSlide>
           ))}
+          <span slot='container-end'>
+            <SwiperButtonPrev className={css['btn-prev']}>
+              <FontAwesomeIcon
+                style={{ height: 'inherit' }}
+                icon={faAngleLeft}
+              />
+            </SwiperButtonPrev>
+            <SwiperButtonNext className={css['btn-next']}>
+              <FontAwesomeIcon
+                style={{ height: 'inherit' }}
+                icon={faAngleRight}
+              />
+            </SwiperButtonNext>
+          </span>
         </Swiper>
-
-        {/* <div className='swiper-button-prev'></div>
-        <div className='swiper-button-next'></div> */}
       </div>
       <div className={css['tablet']}>
         <svg
@@ -204,44 +350,11 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
             d='M219.88 617.06h5a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-5a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z'
           />
         </svg>
-        <div className='prev-screen prev-screen_tablet swiper'>
-          <div className='swiper-wrapper'>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/Galactigun/TABLET-Galactigun.jpg'
-                      alt='Galactigun'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/Zapovednik/TABLET-zapovednik.jpg'
-                      alt='zapovednik'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/GoCorona/TABLET-GoCorona.jpg'
-                      alt='GoCorona'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img src='@img/SpaceX/TABLET-SpaceX.jpg' alt='SpaceX' /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img src='@img/UberEats/TABLET-uber.jpg' alt='uber' /> */}
-              </a>
-            </div>
-          </div>
-        </div>
+        <Swiper
+          className={css['screen']}
+          modules={[Navigation, EffectFade]}
+          effect='fade'
+          loop></Swiper>
       </div>
       <div className={css['phone']}>
         <svg
@@ -287,44 +400,11 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
             d='M165.16 596.01a21.257 21.257 0 0 1 0 42.5c-11.44 0-20.72-9.52-20.72-21.25a20.99 20.99 0 0 1 20.72-21.25z'
           />
         </svg>
-        <div className='prev-screen prev-screen_phone swiper'>
-          <div className='swiper-wrapper'>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/Galactigun/MOBILE-Galactigun.jpg'
-                      alt='Galactigun'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/Zapovednik/MOBILE-zapovednik.jpg'
-                      alt='zapovednik'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img
-                      src='@img/GoCorona/MOBILE-GoCorona.jpg'
-                      alt='GoCorona'
-                    /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img src='@img/SpaceX/MOBILE-SpaceX.jpg' alt='SpaceX' /> */}
-              </a>
-            </div>
-            <div className='swiper-slide'>
-              <a href='#' target='_blank'>
-                {/* <img src='@img/UberEats/MOBILE-uber.jpg' alt='uber' /> */}
-              </a>
-            </div>
-          </div>
-        </div>
+        <Swiper
+          className={css['screen']}
+          modules={[Navigation, EffectFade]}
+          effect='fade'
+          loop></Swiper>
       </div>
     </div>
   )

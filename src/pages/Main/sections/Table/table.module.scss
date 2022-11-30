@@ -43,10 +43,21 @@
 		height: 20%;
 	}
 	.flower-frame {
+		@keyframes flower-frame {
+			0% {
+				transform: rotate(5deg);
+			}
+			100% {
+				transform: rotate(-3deg);
+			}
+		}
 		position: absolute;
 		width: 170px;
 		height: auto;
 		top: 22%;
 		right: 32%;
+
+		transform-origin: top;
+		animation: flower-frame 3s ease-in-out alternate infinite;
 	}
 }
