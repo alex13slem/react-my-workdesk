@@ -1,0 +1,125 @@
+/*---------sect-card-block start---------*/
+.cards-block {
+	position: relative;
+	z-index: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	max-width: fit-content;
+
+	.card {
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		align-items: center;
+		min-height: 185px;
+		min-width: 185px;
+
+		text-align: center;
+		cursor: pointer;
+
+		border-style: none;
+		border-width: 1px;
+		border-image-source: linear-gradient(0deg, transparent 0%, transparent 50%, transparent 100%);
+		border-image-slice: 1;
+
+		transition: border-image-source 0.3s ease;
+
+		&_nth1 {
+			background: radial-gradient(circle at 0% 0%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
+		}
+		&_nth2 {
+			background: radial-gradient(circle at 100% 0%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
+		}
+		&_nth3 {
+			background: radial-gradient(circle at 0% 100%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
+		}
+		&_nth4 {
+			background: radial-gradient(circle at 100% 100%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
+			&.card {
+				&__second-line,
+				&__third-line {
+					color: transparent;
+					background-clip: text;
+					-webkit-background-clip: text;
+					background-image: linear-gradient(317deg, #0000006e 0%, #ffffff 80%, #ffffff 100%);
+				}
+			}
+		}
+		&:hover {
+			&.card_nth1 {
+				border-style: none solid solid none;
+				border-image-source: linear-gradient(315deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
+			}
+			&.card_nth2 {
+				border-style: none none solid solid;
+				border-image-source: linear-gradient(45deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
+			}
+			&.card_nth3 {
+				border-style: solid solid none none;
+				border-image-source: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
+			}
+			&.card_nth4 {
+				border-style: solid none none solid;
+				border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
+			}
+		}
+
+		&__first-line {
+			font-size: 16px;
+			line-height: 1em;
+			font-weight: 100;
+			color: #fff;
+			white-space: nowrap;
+		}
+		&__second-line {
+			font-size: 60px;
+			line-height: 0.9em;
+			font-weight: 700;
+			white-space: nowrap;
+
+			span {
+				font-size: 18px;
+				line-height: 1em;
+				font-weight: 400;
+			}
+		}
+		&__third-line {
+			font-weight: 100;
+			font-size: 18px;
+			line-height: 1em;
+			white-space: nowrap;
+		}
+	}
+}
+/*---------sect-card-block end---------*/
+/*---------sect-card-block media start---------*/
+@media (max-width: 1199px) {
+	.cards-block {
+		margin-right: auto;
+		margin-left: auto;
+
+		.card {
+			&_nth4 {
+				&.card {
+					&__second-line,
+					&__third-line {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 500px) {
+	.cards-block {
+		.card {
+			min-height: 135px;
+			min-width: 135px;
+
+			&__second-line {
+				font-size: 32px;
+			}
+		}
+	}
+}
+/*---------sect-card-block media end---------*/

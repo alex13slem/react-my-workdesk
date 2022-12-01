@@ -1,0 +1,113 @@
+@import "./assets/scss/variables";
+@import "./assets/scss/fonts";
+
+[class*="wrap"] {
+	max-width: calc($wrap_max-w + 32px);
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+body,
+a,
+input,
+button,
+textarea {
+	font-family: $font-family;
+	font-size: $font-size;
+	font-weight: 400;
+	color: $font-color_main;
+	scroll-behavior: smooth;
+}
+
+svg {
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+/*---------body start---------*/
+.body {
+	position: relative;
+	background-color: $background-color_main;
+	&::after {
+		position: absolute;
+		z-index: -1;
+		content: "";
+		background: url("@img/planet.png") 50% 50% / auto 61% no-repeat;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+	&::before {
+		top: 0;
+		left: 0;
+		position: fixed;
+		content: "";
+		z-index: -100;
+		background: url("@img/body_bcgrnd.jpg") 50% 0 / auto 100% no-repeat;
+		width: 100%;
+		height: 100%;
+	}
+}
+/*---------body end---------*/
+/*---------body media start---------*/
+@media (max-width: 1199px) {
+	.body {
+		&::after {
+			display: none;
+		}
+	}
+}
+@media (max-width: 320px) {
+	.body {
+		width: 320px;
+	}
+}
+/*---------body media end---------*/
+
+/*---------main start---------*/
+.main {
+	&__wrap {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	&__proposal {
+		padding-top: calc(15% + 14vh);
+	}
+	&__cards {
+		margin-top: calc(15% + 14vh);
+		justify-self: end;
+	}
+}
+/*---------main end------------*/
+/*---------main media start---------*/
+@media (max-width: 1199px) {
+	.main {
+		&__wrap {
+			display: block;
+		}
+		&__proposal {
+			padding-top: calc(7.5% + 14vh);
+		}
+		&__cards {
+			margin-top: calc(0.4% + 11vh);
+		}
+	}
+}
+@media (max-width: 500px) {
+	.main {
+		&__proposal {
+			padding-top: 20vh;
+		}
+		&__cards {
+			margin-top: 50px;
+		}
+	}
+
+	.main__cards {
+		margin-top: calc(0.4% + 11vh);
+	}
+}
+/*---------main media end-----------*/
