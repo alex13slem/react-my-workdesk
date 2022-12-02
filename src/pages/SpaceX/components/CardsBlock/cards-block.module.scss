@@ -1,11 +1,14 @@
 /*---------sect-card-block start---------*/
 .cards-block {
 	position: relative;
+	margin-top: calc(15% + 14vh);
+	max-width: fit-content;
 	z-index: 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 10px;
-	max-width: fit-content;
+
+	justify-self: end;
 
 	.card {
 		display: grid;
@@ -24,54 +27,56 @@
 
 		transition: border-image-source 0.3s ease;
 
-		&_nth1 {
+		p {
+			margin: 0;
+		}
+
+		&:nth-child(1) {
 			background: radial-gradient(circle at 0% 0%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
 		}
-		&_nth2 {
+		&:nth-child(2) {
 			background: radial-gradient(circle at 100% 0%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
 		}
-		&_nth3 {
+		&:nth-child(3) {
 			background: radial-gradient(circle at 0% 100%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
 		}
-		&_nth4 {
+		&:nth-child(4) {
 			background: radial-gradient(circle at 100% 100%, rgba(255, 255, 0, 0) 65%, rgba(255, 255, 255, 0.5) 220%);
-			&.card {
-				&__second-line,
-				&__third-line {
-					color: transparent;
-					background-clip: text;
-					-webkit-background-clip: text;
-					background-image: linear-gradient(317deg, #0000006e 0%, #ffffff 80%, #ffffff 100%);
-				}
+			.second-line,
+			.third-line {
+				color: transparent;
+				background-clip: text;
+				-webkit-background-clip: text;
+				background-image: linear-gradient(317deg, #0000006e 0%, #ffffff 80%, #ffffff 100%);
 			}
 		}
 		&:hover {
-			&.card_nth1 {
+			&:nth-child(1) {
 				border-style: none solid solid none;
 				border-image-source: linear-gradient(315deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
 			}
-			&.card_nth2 {
+			&:nth-child(2) {
 				border-style: none none solid solid;
 				border-image-source: linear-gradient(45deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
 			}
-			&.card_nth3 {
+			&:nth-child(3) {
 				border-style: solid solid none none;
 				border-image-source: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
 			}
-			&.card_nth4 {
+			&:nth-child(4) {
 				border-style: solid none none solid;
 				border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 50%, transparent 100%);
 			}
 		}
 
-		&__first-line {
+		.first-line {
 			font-size: 16px;
 			line-height: 1em;
 			font-weight: 100;
 			color: #fff;
 			white-space: nowrap;
 		}
-		&__second-line {
+		.second-line {
 			font-size: 60px;
 			line-height: 0.9em;
 			font-weight: 700;
@@ -83,7 +88,7 @@
 				font-weight: 400;
 			}
 		}
-		&__third-line {
+		.third-line {
 			font-weight: 100;
 			font-size: 18px;
 			line-height: 1em;
@@ -98,13 +103,13 @@
 		margin-right: auto;
 		margin-left: auto;
 
+		margin-top: calc(0.4% + 11vh);
+
 		.card {
-			&_nth4 {
-				&.card {
-					&__second-line,
-					&__third-line {
-						color: #fff;
-					}
+			&:nth-child(4) {
+				.second-line,
+				.third-line {
+					color: #fff;
 				}
 			}
 		}
@@ -112,11 +117,12 @@
 }
 @media (max-width: 500px) {
 	.cards-block {
+		margin-top: 50px;
 		.card {
 			min-height: 135px;
 			min-width: 135px;
 
-			&__second-line {
+			.second-line {
 				font-size: 32px;
 			}
 		}

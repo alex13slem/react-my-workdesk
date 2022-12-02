@@ -19,4 +19,9 @@ textarea {
   font-size: $font-size;
   font-weight: 400;
   color: $font-color_main;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
 }

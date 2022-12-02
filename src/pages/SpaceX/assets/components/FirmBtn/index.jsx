@@ -12,7 +12,10 @@ const BtnSpaceX = ({
         backgroundColor: 'rgba(111, 0, 0, 0.666)'
       }
   return (
-    <button type='button' className={className} style={bgRed}>
+    <button
+      type='button'
+      className={[css['firm-btn'], className].join(' ')}
+      style={bgRed}>
       {text}
       {content}
     </button>

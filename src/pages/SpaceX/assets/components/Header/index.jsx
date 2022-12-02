@@ -1,30 +1,25 @@
 import css from './header.module.scss'
+import logo from '../../../img/spacex_logo.webp'
+import { Link } from 'react-router-dom'
 
 const HeaderSpaceX = () => {
   return (
-    <header className='header'>
-      <div className='header__wrap'>
-        <nav className='navbar'>
-          <a className='site-logo' href='javascript:void(0)'>
-            <picture>
-              <source srcset='image/spacex_logo.webp' type='image/webp' />
-              <img
-                className='site-logo__img'
-                src='image/spacex_logo.png'
-                alt='SpaceX'
-              />
-            </picture>
+    <header className={css['header']}>
+      <div className={css['wrap']}>
+        <nav className={css['navbar']}>
+          <a className={css['site-logo']}>
+            <img className={css['img']} src={logo} alt='SpaceX' />
           </a>
           <input type='checkbox' name='burger' id='burger-toggle' />
-          <button className='navbar__toggler'>
-            <label for='burger-toggle'>
-              <span className='navbar__toggler-icon'>
-                <svg xmlnsName='http://www.w3.org/2000/svg' viewBox='0 0 30 30'>
+          <button className={css['toggler']}>
+            <label htmlFor='burger-toggle'>
+              <span className={css['toggler-icon']}>
+                <svg xmlnsname='http://www.w3.org/2000/svg' viewBox='0 0 30 30'>
                   <path
                     stroke='rgba(0, 0, 0, 0.5)'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-miterlimit='10'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeMiterlimit='10'
                     d='M4 7h22M4 15h22M4 23h22'
                   />
                 </svg>
@@ -32,26 +27,26 @@ const HeaderSpaceX = () => {
             </label>
           </button>
 
-          <div className='navbar-nav__collapse'>
-            <div className='navbar-nav'>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+          <div className={css['collapse']}>
+            <div className={css['navbar-nav']}>
+              <Link className={css['item']} to={'/'}>
                 Главная
-              </a>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+              </Link>
+              <Link className={css['item']} to={'/'}>
                 Технология
-              </a>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+              </Link>
+              <Link className={css['item']} to={'/'}>
                 График полётов
-              </a>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+              </Link>
+              <Link className={css['item']} to={'/'}>
                 Гарантии
-              </a>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+              </Link>
+              <Link className={css['item']} to={'/'}>
                 О компании
-              </a>
-              <a className='navbar-nav__item' href='javascript:void(0)'>
+              </Link>
+              <Link className={css['item']} to={'/'}>
                 Контакты
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

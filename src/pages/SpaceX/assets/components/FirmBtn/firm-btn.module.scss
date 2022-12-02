@@ -1,6 +1,7 @@
 .firm-btn {
 	padding: 8px 23px;
 
+	font-family: "Museo Sans Cyrl", sans-serif;
 	font-size: 14px;
 	line-height: 1.2;
 	font-weight: 100;
@@ -16,9 +17,9 @@
 	transform-origin: right;
 	transition: border-image-source 0.3s ease, transform 0.3s ease;
 
-	&_red {
-		background-color: rgba(111, 0, 0, 0.666);
-	}
+	// &_red {
+	// 	background-color: rgba(111, 0, 0, 0.666);
+	// }
 
 	&:hover {
 		border-image-source: linear-gradient(300deg, #263e66 20%, #09213d 40%, #111f2d 61%, #23599c 79%);

@@ -8,7 +8,7 @@
 	border-bottom: 1px solid rgba(152, 147, 147, 0.21);
 	border-top: 1px solid rgba(152, 147, 147, 0.21);
 
-	&__wrap {
+	.wrap {
 		padding-right: 50px;
 	}
 }
@@ -20,14 +20,14 @@
 	input {
 		display: none;
 		&:checked {
-			& ~ .navbar-nav__collapse {
+			& ~ .collapse {
 				visibility: visible;
 				background: rgba(0, 0, 0, 0.9);
 			}
 		}
 	}
 
-	&__toggler {
+	.toggler {
 		z-index: 100;
 		position: relative;
 		display: none;
@@ -41,7 +41,7 @@
 		}
 	}
 
-	&__toggler-icon {
+	.toggler-icon {
 		display: inline-block;
 		vertical-align: middle;
 		content: "";
@@ -59,9 +59,15 @@
 			}
 		}
 	}
+	.collapse {
+		display: grid;
+		align-items: center;
+	}
 }
 .site-logo {
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	max-width: 314px;
 
@@ -72,8 +78,8 @@
 		5;
 	transition: transform 0.3s ease;
 
-	&__img {
-		object-fit: contain;
+	.img {
+		width: 100%;
 	}
 
 	&::after,
@@ -99,13 +105,12 @@
 }
 
 .navbar-nav {
-	&__collapse {
-		display: grid;
-		align-items: center;
-	}
-	&__item {
-		margin-left: 36px;
+	.item {
+		margin-left: 40px;
 		position: relative;
+
+		font-family: "Museo Sans Cyrl", sans-serif;
+		color: #fff;
 
 		&:first-child {
 			margin-left: 0;
@@ -143,18 +148,10 @@
 /*----------header media start-----------*/
 @media (max-width: 1199px) {
 	.navbar {
-		&__toggler {
+		.toggler {
 			display: block;
 		}
-	}
-	.navbar-nav {
-		margin: 0;
-		position: absolute;
-		display: inline-block;
-		top: calc(50% - 18vmax);
-		left: calc(50% - 11vmax);
-
-		&__collapse {
+		.collapse {
 			visibility: collapse;
 			position: fixed;
 			top: 0;
@@ -165,8 +162,15 @@
 
 			transition: background 0.3s ease;
 		}
+	}
+	.navbar-nav {
+		margin: 0;
+		position: absolute;
+		display: inline-block;
+		top: calc(50% - 18vmax);
+		left: calc(50% - 11vmax);
 
-		&__item {
+		.item {
 			display: block;
 			margin: 0;
 			margin-bottom: 3vmax;
@@ -186,12 +190,19 @@
 }
 
 @media (max-width: 767px) {
+	.header {
+		.wrap {
+			padding-right: 16px;
+		}
+	}
 	.site-logo {
 		max-width: 135px;
 	}
-	.navbar__toggler-icon {
-		width: 53px;
-		height: 53px;
+	.navbar {
+		.toggler-icon {
+			width: 53px;
+			height: 53px;
+		}
 	}
 }
 /*----------header media end-----------*/

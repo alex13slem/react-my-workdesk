@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "first-str": "мы",
+    "second-str": "1",
+    "third-str": "на рынке"
+  },
+  {
+    "id": 2,
+    "first-str": "гарантируем",
+    "second-str": "50%",
+    "third-str": "безопасность"
+  },
+  {
+    "id": 3,
+    "first-str": "календарик за",
+    "second-str": "2001<span> г.</span>",
+    "third-str": "в подарок"
+  },
+  {
+    "id": 4,
+    "first-str": "путешествие",
+    "second-str": "597",
+    "third-str": "дней"
+  }
+]

@@ -6,7 +6,7 @@ import css from './space-x.module.scss'
 
 const SpaceX = () => {
   return (
-    <body className={css['body']}>
+    <div className={css['body']}>
       <HeaderSpaceX />
       <main className={css['main']}>
         <div className={css['wrap']}>
@@ -14,7 +14,7 @@ const SpaceX = () => {
           <CardsBlockSpaceX />
         </div>
       </main>
-    </body>
+    </div>
   )
 }
 
