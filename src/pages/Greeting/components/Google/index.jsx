@@ -1,4 +1,4 @@
-import Typed from '../../../../assets/components/Typed'
+import Typed from '../../../../common/components/Typed'
 import css from './google.module.scss'
 
 const Google = () => {
@@ -7,8 +7,7 @@ const Google = () => {
       <svg
         className={css['logo']}
         xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 272 92'
-      >
+        viewBox='0 0 272 92'>
         <path
           fill='#EA4335'
           d='M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z'
@@ -38,8 +37,7 @@ const Google = () => {
           xmlns='http://www.w3.org/2000/svg'
           width='24'
           height='24'
-          fill='#5F6368'
-        >
+          fill='#5F6368'>
           <path d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
         </svg>
       </div>

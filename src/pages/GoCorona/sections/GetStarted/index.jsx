@@ -2,8 +2,8 @@ import {
   BlockTextGoCorona,
   BlockTextGoCoronaTEXT,
   BlockTextGoCoronaTITLE
-} from '../../assets/components/BlockText'
-import ButtonGoCorona from '../../assets/components/Button'
+} from '../../common/components/BlockText'
+import ButtonGoCorona from '../../common/components/Button'
 import css from './get-started.module.scss'
 
 const GetStartedGoCorona = () => {

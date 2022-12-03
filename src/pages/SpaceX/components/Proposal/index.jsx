@@ -1,4 +1,4 @@
-import BtnSpaceX from '../../assets/components/FirmBtn'
+import BtnSpaceX from '../../common/components/FirmBtn'
 import css from './proposal.module.scss'
 
 const ProposalSpaceX = () => {

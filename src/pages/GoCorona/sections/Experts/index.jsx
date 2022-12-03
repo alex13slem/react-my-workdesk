@@ -2,9 +2,9 @@ import {
   BlockTextGoCorona,
   BlockTextGoCoronaTEXT,
   BlockTextGoCoronaTITLE
-} from '../../assets/components/BlockText'
-import ButtonGoCorona from '../../assets/components/Button'
-import { style } from '../../assets/functions'
+} from '../../common/components/BlockText'
+import ButtonGoCorona from '../../common/components/Button'
+import { style } from '../../common/functions'
 import css from './experts.module.scss'
 
 const ExpertsGoCorona = () => {

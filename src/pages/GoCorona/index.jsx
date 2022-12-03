@@ -1,5 +1,5 @@
-import FooterGoCorona from './assets/components/Footer'
-import HeaderGoCorona from './assets/components/Header'
+import FooterGoCorona from './common/components/Footer'
+import HeaderGoCorona from './common/components/Header'
 import css from './go-corona.module.scss'
 import ExpertsGoCorona from './sections/Experts'
 import GetStartedGoCorona from './sections/GetStarted'

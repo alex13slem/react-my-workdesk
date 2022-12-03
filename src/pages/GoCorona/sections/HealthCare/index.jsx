@@ -2,8 +2,8 @@ import {
   BlockTextGoCorona,
   BlockTextGoCoronaTEXT,
   BlockTextGoCoronaTITLE
-} from '../../assets/components/BlockText'
-import { style } from '../../assets/functions'
+} from '../../common/components/BlockText'
+import { style } from '../../common/functions'
 import css from './health-care.module.scss'
 
 import cardImg1 from '../../img/healthcare/1.svg'

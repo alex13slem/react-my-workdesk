@@ -1,12 +1,12 @@
 import css from './stay-safe.module.scss'
 
 import mobileAppImg from '../../img/stay-safe/image.png'
-import ButtonGoCorona from '../../assets/components/Button'
+import ButtonGoCorona from '../../common/components/Button'
 import {
   BlockTextGoCorona,
   BlockTextGoCoronaTEXT,
   BlockTextGoCoronaTITLE
-} from '../../assets/components/BlockText'
+} from '../../common/components/BlockText'
 
 const StaySafeGoCorona = () => {
   return (

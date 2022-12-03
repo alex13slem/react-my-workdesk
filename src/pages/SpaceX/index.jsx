@@ -1,4 +1,4 @@
-import HeaderSpaceX from './assets/components/Header'
+import HeaderSpaceX from './common/components/Header'
 import CardsBlockSpaceX from './components/CardsBlock'
 import ProposalSpaceX from './components/Proposal'
 

@@ -14,7 +14,7 @@ import { SwiperButtonGo } from './components/Swiper/components/SwiperBtns'
 import {
   SwiperButtonNext,
   SwiperButtonPrev
-} from '../../../../assets/components/Swiper/components/SwiperBtns'
+} from '../../../../common/components/Swiper/components/SwiperBtns'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
