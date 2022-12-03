@@ -2,8 +2,9 @@
 //----------------HEADER----------------------------//
 //----------------------------------------------------
 .header {
-	position: absolute;
-	left: 0;
+	// position: absolute;
+	// left: 0;
+	position: sticky;
 	top: 0;
 	width: 100%;
 	z-index: 50;

@@ -1,15 +1,65 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ButtonGoCorona from '../Button'
 import css from './header.module.scss'
 
 const HeaderGoCorona = () => {
+  const headerRef = useRef(null)
+  const headerHeight = headerRef.current?.scrollHeight
   const [display, setDisplay] = useState(false)
+  const [currentScrollPos, setCurrentScrollPos] = useState(0)
+  const [prevScrollPos, setPrevScrollPos] = useState(1)
+  const [headerOpacity, setHeaderOpacity] = useState('0%')
+  const [headerTopValue, setHeaderTopValue] = useState(0)
 
   const toggleNav = () => setDisplay(!display)
-  // const toggleNav = () => console.log('click')
+
+  const headerStyle = {
+    background: `rgb(255 255 255 / ${headerOpacity})`,
+    top: headerTopValue
+  }
   const menuDisplay = !display ? {} : { left: 0 }
+
+  const handleScroll = () => {
+    setCurrentScrollPos(window.scrollY)
+
+    if (currentScrollPos <= 80 && currentScrollPos > 15) {
+      setHeaderOpacity(`${currentScrollPos * 1.125}%`)
+    }
+    if (currentScrollPos <= 15) {
+      setHeaderOpacity(`0%`)
+    }
+    if (currentScrollPos > 80) {
+      setHeaderOpacity(`90%`)
+    }
+
+    let scrollStep = headerTopValue - (currentScrollPos - prevScrollPos)
+
+    if (scrollStep >= -headerHeight && scrollStep <= 0) {
+      setHeaderTopValue(scrollStep)
+      console.warn(`if scrollStep == valid, headerTopValue = ${headerTopValue}`)
+    }
+
+    if (scrollStep < -headerHeight) {
+      setHeaderTopValue(-headerHeight)
+    }
+
+    if (scrollStep > 0) {
+      setHeaderTopValue(0)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
+
   return (
-    <header className={css['header']}>
+    <header className={css['header']} style={headerStyle} ref={headerRef}>
       <div className={css['header__container']}>
         <a href='#' className={css['header__logo']}>
           <svg
@@ -69,24 +119,24 @@ const HeaderGoCorona = () => {
           <nav className={css['menu__body']} style={menuDisplay}>
             <ul className={css['menu__list']}>
               <li className={css['menu__item']}>
-                <a href='#' className={css['menu__link']}>
+                <Link to={'/'} className={css['menu__link']}>
                   HOME
-                </a>
+                </Link>
               </li>
               <li className={css['menu__item']}>
-                <a href='#' className={css['menu__link']}>
+                <Link to={'/'} className={css['menu__link']}>
                   FEATURES
-                </a>
+                </Link>
               </li>
               <li className={css['menu__item']}>
-                <a href='#' className={css['menu__link']}>
+                <Link to={'/'} className={css['menu__link']}>
                   SUPPORT
-                </a>
+                </Link>
               </li>
               <li className={css['menu__item']}>
-                <a href='#' className={css['menu__link']}>
+                <Link to={'/'} className={css['menu__link']}>
                   CONTACT US
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
