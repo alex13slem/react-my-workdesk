@@ -7,26 +7,29 @@ export const BlockTextGoCorona = ({ children, className }) => {
 }
 
 export const BlockTextGoCoronaTITLE = ({
+  priority,
   children,
   marker = 'red',
   className = ''
 }) => {
+  const CustomTag = `h${priority}`
   return (
-    <div
+    <CustomTag
       className={[
         css['block-text__title'],
         css[`marker-${marker}`],
         className
       ].join(' ')}>
       {children}
-    </div>
+    </CustomTag>
   )
 }
 
-export const BlockTextGoCoronaTEXT = ({ children, className }) => {
+export const BlockTextGoCoronaTEXT = ({ children, className, tag = 'p' }) => {
+  const CustomTag = `${tag}`
   return (
-    <div className={[css['block-text__text'], className].join(' ')}>
+    <CustomTag className={[css['block-text__text'], className].join(' ')}>
       {children}
-    </div>
+    </CustomTag>
   )
 }

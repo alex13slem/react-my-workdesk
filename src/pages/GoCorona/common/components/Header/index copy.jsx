@@ -1,17 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../../../../../common/components/Header'
 import ButtonGoCorona from '../Button'
 import css from './header.module.scss'
 
 const HeaderGoCorona = () => {
   const headerRef = useRef(null)
+  const headerHeight = headerRef.current?.scrollHeight
   const [display, setDisplay] = useState(false)
   const [currentScrollPos, setCurrentScrollPos] = useState(0)
+  const [prevScrollPos, setPrevScrollPos] = useState(1)
   const [headerOpacity, setHeaderOpacity] = useState('0%')
+  const [headerTopValue, setHeaderTopValue] = useState(0)
 
   const toggleNav = () => setDisplay(!display)
 
+  const headerStyle = {
+    background: `rgb(255 255 255 / ${headerOpacity})`,
+    top: headerTopValue
+  }
   const menuDisplay = !display ? {} : { left: 0 }
 
   const handleScroll = () => {
@@ -26,6 +32,22 @@ const HeaderGoCorona = () => {
     if (currentScrollPos > 80) {
       setHeaderOpacity(`90%`)
     }
+
+    let scrollStep = headerTopValue - (currentScrollPos - prevScrollPos)
+
+    if (scrollStep >= -headerHeight && scrollStep <= 0) {
+      setHeaderTopValue(scrollStep)
+    }
+
+    if (scrollStep < -headerHeight) {
+      setHeaderTopValue(-headerHeight)
+    }
+
+    if (scrollStep > 0) {
+      setHeaderTopValue(0)
+    }
+
+    setPrevScrollPos(currentScrollPos)
   }
 
   useEffect(() => {
@@ -36,10 +58,7 @@ const HeaderGoCorona = () => {
   })
 
   return (
-    <Header
-      className={css['header']}
-      style={{ background: `rgb(255 255 255 / ${headerOpacity})` }}
-      ref={headerRef}>
+    <header className={css['header']} style={headerStyle} ref={headerRef}>
       <div className={css['header__container']}>
         <a href={() => null} className={css['header__logo']}>
           <svg
@@ -130,7 +149,7 @@ const HeaderGoCorona = () => {
           </a>
         </div>
       </div>
-    </Header>
+    </header>
   )
 }
 

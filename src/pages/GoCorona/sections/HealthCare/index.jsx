@@ -15,7 +15,7 @@ const HealthCareGoCorona = () => {
     <section className={style(css, 'healthcare')}>
       <div className={style(css, 'healthcare__container')}>
         <BlockTextGoCorona className={style(css, 'healthcare__block-text')}>
-          <BlockTextGoCoronaTITLE marker='red'>
+          <BlockTextGoCoronaTITLE priority={2} marker='red'>
             <span>Healthcare</span> at your Fingertips.
           </BlockTextGoCoronaTITLE>
           <BlockTextGoCoronaTEXT>

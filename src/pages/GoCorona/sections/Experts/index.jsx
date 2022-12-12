@@ -32,10 +32,10 @@ const ExpertsGoCorona = () => {
         </div>
         <div className={style(css, 'experts__content')}>
           <BlockTextGoCorona className={style(css, 'experts__block-text')}>
-            <BlockTextGoCoronaTITLE marker='blue'>
+            <BlockTextGoCoronaTITLE priority={2} marker='blue'>
               Talk to <span>experts.</span>
             </BlockTextGoCoronaTITLE>
-            <BlockTextGoCoronaTEXT>
+            <BlockTextGoCoronaTEXT tag={'h3'}>
               Book appointments or submit queries into thousands of forums
               concerning health issues and prevention against noval Corona
               Virus.

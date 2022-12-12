@@ -14,16 +14,16 @@ const StaySafeGoCorona = () => {
       <div className={css['stay-safe__container']}>
         <img src={mobileAppImg} alt='Stay Safe' />
         <BlockTextGoCorona className={css['block-text']}>
-          <BlockTextGoCoronaTITLE className={css['block-text__title']}>
+          <BlockTextGoCoronaTITLE
+            priority={2}
+            className={css['block-text__title']}>
             Stay safe with Go<span>Corona.</span>
           </BlockTextGoCoronaTITLE>
           <BlockTextGoCoronaTEXT className={css['block-text__text']}>
             24x7 Support and user friendly mobile platform to bring healthcare
             to your fingertips. Signup and be a part of the new health culture.
           </BlockTextGoCoronaTEXT>
-          <div className={css['block-text__button']}>
-            <ButtonGoCorona href='#'>Features</ButtonGoCorona>
-          </div>
+          <ButtonGoCorona href='#'>Features</ButtonGoCorona>
         </BlockTextGoCorona>
       </div>
     </section>

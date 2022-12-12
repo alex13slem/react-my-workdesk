@@ -8,7 +8,7 @@ import '/node_modules/swiper/swiper.scss'
 import '/node_modules/swiper/modules/navigation/navigation.scss'
 import '/node_modules/swiper/modules/effect-fade/effect-fade.scss'
 
-import { Navigation, EffectFade, Thumbs, Controller } from 'swiper'
+import { EffectFade, Controller } from 'swiper'
 import { Swiper, SwiperSlide } from '/node_modules/swiper/react/swiper-react.js'
 import { SwiperButtonGo } from './components/Swiper/components/SwiperBtns'
 import {
@@ -90,7 +90,7 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
         <Swiper
           controller={{ control: controlledSwiper1 }}
           className={css['screen']}
-          modules={[Navigation, Thumbs, EffectFade, Controller]}
+          modules={[EffectFade, Controller]}
           effect='fade'
           loop>
           {activeSlides('desktop').map(
@@ -159,7 +159,7 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
         </svg>
         <Swiper
           className={css['screen']}
-          modules={[Thumbs, Controller]}
+          modules={[Controller]}
           onSwiper={setControlledSwiper1}
           controller={{ control: controlledSwiper2 }}
           loop>
@@ -213,7 +213,7 @@ const PreviewScreen = ({ gridColumn, gridRow, alignSelf }) => {
         </svg>
         <Swiper
           className={css['screen']}
-          modules={[Thumbs, Controller]}
+          modules={[Controller]}
           onSwiper={setControlledSwiper2}
           loop>
           {activeSlides('mobile').map(({ id, src, alt }) => (

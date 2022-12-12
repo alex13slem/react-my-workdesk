@@ -14,17 +14,18 @@ const GetStartedGoCorona = () => {
           <BlockTextGoCorona className={css['block-text']}>
             <BlockTextGoCoronaTITLE
               className={css['block-text__title']}
+              priority={1}
               marker='blue'>
               Take care of yours family’s
               <span> health.</span>
             </BlockTextGoCoronaTITLE>
-            <BlockTextGoCoronaTEXT className={css['block-text__text']}>
+            <BlockTextGoCoronaTEXT
+              tag={'p'}
+              className={css['block-text__text']}>
               All in one destination for COVID-19 health queries. <br /> Consult
               10,000+ health workers about your concerns.
             </BlockTextGoCoronaTEXT>
-            <div className={css['block-text__button']}>
-              <ButtonGoCorona href={'#'}>GET STARTED</ButtonGoCorona>
-            </div>
+            <ButtonGoCorona href={'#'}>GET STARTED</ButtonGoCorona>
           </BlockTextGoCorona>
           <div className={css['get-started__image']}>
             <svg
