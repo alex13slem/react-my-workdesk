@@ -1,0 +1,53 @@
+.root {
+	display: flex;
+	gap: 12px;
+	text-decoration: none;
+	&:hover {
+		& > svg {
+			circle,
+			path {
+				stroke: #ec5863;
+			}
+		}
+	}
+	& > svg {
+		circle,
+		path {
+			transition: stroke 0.3s ease;
+		}
+	}
+}
+.body {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	max-width: 230px;
+	height: 44px;
+	position: relative;
+	transition: transform 0.3s ease;
+	&:hover {
+		.title {
+			color: #ec5863;
+		}
+	}
+}
+
+.title {
+	font-family: "Rubik";
+	font-size: 13px;
+	line-height: 126%;
+	/* or 16px */
+	letter-spacing: 0.08em;
+	color: #b0b0b0;
+}
+
+.text {
+	font-family: "Rubik";
+	font-size: 9px;
+	line-height: 126%;
+	/* or 11px */
+	letter-spacing: 0.165em;
+	text-transform: uppercase;
+	color: #000000;
+}

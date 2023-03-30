@@ -1,0 +1,24 @@
+/*---------main start---------*/
+.wrap {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+/*---------main end------------*/
+/*---------main media start---------*/
+@media (max-width: 1199px) {
+	.wrap {
+		display: block;
+	}
+}
+@media (max-width: 500px) {
+	.main {
+		.cards {
+			margin-top: 50px;
+		}
+	}
+
+	.cards {
+		margin-top: calc(0.4% + 11vh);
+	}
+}
+/*---------main media end-----------*/

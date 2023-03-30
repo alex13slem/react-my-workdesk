@@ -1,33 +1,28 @@
-import css from './stay-safe.module.scss'
+import css from './style.module.scss';
 
-import mobileAppImg from '../../img/stay-safe/image.png'
-import ButtonGoCorona from '../../common/components/Button'
-import {
-  BlockTextGoCorona,
-  BlockTextGoCoronaTEXT,
-  BlockTextGoCoronaTITLE
-} from '../../common/components/BlockText'
+import mobileAppImg from '../../img/stay-safe/image.png';
+import TextTitle from '../../common/components/UI/TextTitle';
+import TextContent from '../../common/components/UI/TextContent';
+import ButtonGoCorona from '../../common/components/UI/ButtonGoCorona';
 
-const StaySafeGoCorona = () => {
+const SectionStaySafe = () => {
   return (
     <section className={css['stay-safe']}>
-      <div className={css['stay-safe__container']}>
-        <img src={mobileAppImg} alt='Stay Safe' />
-        <BlockTextGoCorona className={css['block-text']}>
-          <BlockTextGoCoronaTITLE
-            priority={2}
-            className={css['block-text__title']}>
+      <div className={css['container']}>
+        <img src={mobileAppImg} alt="Stay Safe" />
+        <div className={css['text-block']}>
+          <TextTitle priority={2} className={css['text-block__title']}>
             Stay safe with Go<span>Corona.</span>
-          </BlockTextGoCoronaTITLE>
-          <BlockTextGoCoronaTEXT className={css['block-text__text']}>
+          </TextTitle>
+          <TextContent className={css['text-block__description']}>
             24x7 Support and user friendly mobile platform to bring healthcare
             to your fingertips. Signup and be a part of the new health culture.
-          </BlockTextGoCoronaTEXT>
-          <ButtonGoCorona href='#'>Features</ButtonGoCorona>
-        </BlockTextGoCorona>
+          </TextContent>
+          <ButtonGoCorona to={'./'}>Features</ButtonGoCorona>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default StaySafeGoCorona
+export default SectionStaySafe;

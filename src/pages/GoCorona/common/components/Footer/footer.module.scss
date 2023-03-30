@@ -1,20 +1,13 @@
-.footer {
-	&__container {
-		min-height: 100px !important;
-		padding-bottom: 50px !important;
-	}
-
-	&__icons {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 55px;
-		@media (max-width: 767.98px) {
-			flex-direction: column;
-		}
-	}
+.container {
+	min-height: 100px !important;
+	padding-bottom: 50px !important;
 }
 .icons {
-	&__item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 55px;
+	@media (max-width: 767.98px) {
+		flex-direction: column;
 	}
 }

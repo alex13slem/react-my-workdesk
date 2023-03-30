@@ -1,0 +1,14 @@
+.title {
+	font-family: "Rubik";
+	font-weight: 700;
+	font-size: 44px;
+	line-height: 126%;
+	color: #000000;
+	margin-bottom: 12px;
+	&.marker-blue span {
+		color: #4285f4;
+	}
+	&.marker-red span {
+		color: #ec5863;
+	}
+}

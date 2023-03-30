@@ -1,0 +1,252 @@
+// @import "../../../../variables";
+
+.preview {
+	position: relative;
+	width: calc(50vh + 20%);
+	perspective: 150vh;
+
+	margin-bottom: 10%;
+	margin-left: 70px;
+
+	@media (max-aspect-ratio: 16 / 11) {
+		margin-bottom: 13%;
+	}
+
+	@media (orientation: portrait) {
+		width: 100%;
+		margin-inline: auto;
+	}
+
+	.desktop {
+		@keyframes prevScreenHover {
+			0% {
+				box-shadow: rgba(255, 255, 255, 0.5) 0 0 15px 12px;
+			}
+			100% {
+				box-shadow: rgba(255, 255, 255, 0.5) 0 0 10px 15px;
+			}
+		}
+		position: relative;
+
+		transition: 0.5s ease;
+		transform-origin: center;
+		transform: rotateY(35deg) scale(80%);
+
+		& > svg {
+			display: block;
+			width: 100%;
+			object-fit: contain;
+		}
+
+		@media (hover: none) {
+			transform: none;
+
+			.screen {
+				overflow-y: overlay;
+				animation: prevScreenHover 0.6s ease-in-out infinite alternate;
+			}
+		}
+		&:hover {
+			transform: none;
+
+			.screen {
+				overflow-y: overlay;
+				animation: prevScreenHover 0.6s ease-in-out infinite alternate;
+			}
+			.btn {
+				&-next,
+				&-prev {
+					opacity: 1;
+				}
+			}
+		}
+		&:hover ~ .tablet {
+			transform: translate(300%, 50%) scale(300%);
+			opacity: 0;
+			transition: 0.5s ease;
+		}
+		&:hover ~ .phone {
+			transform: translate(300%, 50%) scale(300%);
+			opacity: 0;
+			transition: 0.5s ease;
+		}
+
+		.screen {
+			position: absolute;
+			width: 90%;
+			height: 66.5%;
+			top: 5.6%;
+			left: 4.9%;
+
+			overflow: hidden;
+			box-shadow: 0px 0px 6px 0px rgba(30, 52, 69, 0.87) inset;
+
+			img {
+				width: 100%;
+			}
+
+			&::-webkit-scrollbar {
+				width: 7px;
+				background-color: rgba(255, 255, 255, 0.233);
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: rgba(255, 255, 255, 0.836);
+				border-radius: 5px;
+				border: solid 1px rgba(0, 0, 0, 0.541);
+			}
+
+			@media (hover: none) {
+				overflow-y: overlay;
+				animation: prevScreenHover 0.6s ease-in-out infinite alternate;
+			}
+
+			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				cursor: default;
+			}
+		}
+		.btn {
+			&-go {
+				@keyframes btn-go {
+					0%,
+					100% {
+						box-shadow: 0 0 4px 1px var(--color2);
+					}
+					50% {
+						box-shadow: 0 0 4px 3px var(--color2);
+					}
+				}
+
+				opacity: 0;
+				position: absolute;
+
+				border-radius: 8px;
+				background: transparent;
+
+				// transition: 0.3s ease;
+				animation: btn-go 1s ease infinite;
+
+				&:hover {
+					animation: none;
+					box-shadow: 0 0 5px 5px var(--color2);
+				}
+				&:active {
+					animation: none;
+					box-shadow: 0 0 4px 3px var(--color2);
+				}
+			}
+
+			&-next,
+			&-prev {
+				opacity: 0;
+				position: fixed;
+				top: 34%;
+				height: 50px;
+				width: 50px;
+				z-index: 2;
+				background: transparent;
+
+				transition: opacity 0.3s ease;
+
+				@media (hover: none) {
+					opacity: 1;
+				}
+				@media (max-width: 767.98px) {
+					height: 25px;
+					width: 25px;
+				}
+
+				svg {
+					color: var(--color1);
+					filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+				}
+			}
+			&-prev {
+				left: 5%;
+				@media (max-width: 767.98px) {
+					left: 7%;
+				}
+			}
+			&-next {
+				right: 5%;
+				@media (max-width: 767.98px) {
+					right: 7%;
+				}
+			}
+		}
+	}
+
+	.tablet {
+		position: absolute;
+
+		width: 17%;
+		height: 29%;
+		bottom: 7%;
+		right: 15%;
+
+		pointer-events: none;
+
+		@media (hover: none) {
+			display: none;
+		}
+
+		transition: 0.5s 0.3s ease;
+
+		& > svg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		.screen {
+			height: 78%;
+			width: 85%;
+			margin-top: 15%;
+
+			box-shadow: 0 0 4px 4px #ffffff78;
+
+			img {
+				height: 100%;
+			}
+		}
+	}
+
+	.phone {
+		z-index: 1;
+		position: absolute;
+		width: 10%;
+		height: 23%;
+		bottom: 6%;
+		right: 29%;
+
+		pointer-events: none;
+
+		@media (hover: none) {
+			display: none;
+		}
+
+		transition: 0.5s 0.3s ease;
+
+		& > svg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		.screen {
+			height: 76%;
+			width: 81%;
+			margin-top: 23%;
+
+			box-shadow: 0 0 4px 4px #ffffff78;
+
+			img {
+				height: 100%;
+			}
+		}
+	}
+}

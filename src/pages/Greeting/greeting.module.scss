@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+// @import "../../variables.scss";
 
 @keyframes color {
 	0% {
@@ -7,22 +7,22 @@
 	}
 	25% {
 		color: #fff;
-		// color: $color1;
-		background: $font-color_main;
+		// color: var(--color1);
+		background: var(--font-color_main);
 	}
 	50% {
-		color: $font-color_main;
-		// color: $color3;
-		background: $color2;
+		color: var(--font-color_main);
+		// color: var(--color3);
+		background: var(--color2);
 	}
 	75% {
 		color: #fff;
-		// color: $color1;
-		background: $color3;
+		// color: var(--color1);
+		background: var(--color3);
 	}
 	100% {
-		color: $font-color_main;
-		background: $color1;
+		color: var(--font-color_main);
+		background: var(--color1);
 	}
 }
 

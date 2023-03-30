@@ -1,0 +1,14 @@
+.container {
+	padding: 80px 15px 75px !important;
+}
+.text-block {
+	margin: 0 auto 45px;
+	display: flex;
+	gap: 14px;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+	&__description {
+		max-width: 600px;
+	}
+}

@@ -1,0 +1,57 @@
+@import "../fonts/fonts.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --wrap_max-w: 1170px;
+  // --out-wrap_max-w: 1595px;
+
+  // --header-height: 0;
+  // --footer-minHeight: 275px;
+  // --aside-width: 325px;
+  // --main-width: 1fr;
+
+  --font-family: "NotoSansMono", sans-serif;
+  --font-family_var: "NotoSansMono var", sans-serif;
+  --font-size: 16px;
+  --font-color_main: #1f1f1f;
+
+  // --fa-font-path: "./fonts";
+  // --fa-free: "Font Awesome 6 Free";
+  // --fa-brands: "Font Awesome 6 Brands";
+
+  --color1: #ffdecf;
+  --color2: #ba7967;
+  --color3: #5e6f64;
+  --color4: #3f4441;
+  --color_bg-main: #faebd7;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  background-color: transparent;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  height: 100vh;
+  background: var(--color_bg-main);
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 400;
+  color: var(--font-color_main);
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

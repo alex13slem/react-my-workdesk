@@ -1,0 +1,31 @@
+.flower-frame {
+	@keyframes flower-frame {
+		0% {
+			transform: rotate(5deg);
+		}
+		100% {
+			transform: rotate(-3deg);
+		}
+	}
+	position: absolute;
+	width: 170px;
+	height: auto;
+	top: 22%;
+	right: 32%;
+
+	transform-origin: top;
+	animation: flower-frame 3s ease-in-out alternate infinite;
+
+	@media (max-width: 1023.98px) {
+		right: auto;
+		left: 20%;
+	}
+	@media (max-width: 767.98px) {
+		// display: none;
+		top: auto;
+		bottom: 45%;
+	}
+	@media (max-height: 767.98px) {
+		display: none;
+	}
+}

@@ -1,76 +1,40 @@
+import css from './style.module.scss';
+
+import cardsJSON from '../../data/cardsBlock.json';
 import {
-  BlockTextGoCorona,
-  BlockTextGoCoronaTEXT,
-  BlockTextGoCoronaTITLE
-} from '../../common/components/BlockText'
-import { style } from '../../common/functions'
-import css from './health-care.module.scss'
+  SVGDoctor,
+  SVGHealthMan,
+} from '../../common/components/images/CardsImages';
+import PNGHeart from '../../img/healthcare-heart.png';
+import CardsBlock, {
+  setCardDataById,
+} from '../../common/components/UI/CardsBlock';
+import TextContent from '../../common/components/UI/TextContent';
+import TextTitle from '../../common/components/UI/TextTitle';
 
-import cardImg1 from '../../img/healthcare/1.svg'
-import cardImg2 from '../../img/healthcare/2.svg'
-import cardImg3 from '../../img/healthcare/3.png'
-
-const HealthCareGoCorona = () => {
+const SectionHealthCare = () => {
+  const cardsId = {first: 1, second: 2, third: 3};
+  const cardsData = [...cardsJSON];
+  setCardDataById(cardsData, cardsId.first).img = <SVGHealthMan />;
+  setCardDataById(cardsData, cardsId.second).img = <SVGDoctor />;
+  setCardDataById(cardsData, cardsId.third).img = PNGHeart;
   return (
-    <section className={style(css, 'healthcare')}>
-      <div className={style(css, 'healthcare__container')}>
-        <BlockTextGoCorona className={style(css, 'healthcare__block-text')}>
-          <BlockTextGoCoronaTITLE priority={2} marker='red'>
+    <section className={css['root']}>
+      <div className={css['container']}>
+        <div className={css['text-block']}>
+          <TextTitle priority={2} marker="red">
             <span>Healthcare</span> at your Fingertips.
-          </BlockTextGoCoronaTITLE>
-          <BlockTextGoCoronaTEXT>
+          </TextTitle>
+          <TextContent className={css['text-block__description']}>
             Bringing premium healthcare features to your fingertips. User
             friendly mobile platform to bring healthcare to your fingertips.
             Signup and be a part of the new health culture.
-          </BlockTextGoCoronaTEXT>
-        </BlockTextGoCorona>
-        <div className={style(css, 'healthcare__cards cards')}>
-          <div className={style(css, 'cards__block')}>
-            <article className={style(css, 'cards__item')}>
-              <img
-                src={cardImg1}
-                alt='GoCorona'
-                className={style(css, 'cards__image')}
-              />
-              <div className={style(css, 'cards__title')}>Symptom Checker</div>
-              <div className={style(css, 'cards__text')}>
-                Check if you are infected by <br />
-                COVID-19 with our Symptom Checker
-              </div>
-            </article>
-            <article className={style(css, 'cards__item')}>
-              <img
-                src={cardImg2}
-                alt='GoCorona'
-                className={style(css, 'cards__image')}
-              />
-              <div className={style(css, 'cards__title')}>
-                24x7 Medical support
-              </div>
-              <div className={style(css, 'cards__text')}>
-                Consult with 10,000+ health <br /> workers about your concerns.
-              </div>
-            </article>
-            <article className={style(css, 'cards__item')}>
-              <img
-                src={cardImg3}
-                alt='GoCorona'
-                className={style(css, 'cards__image')}
-              />
-              <div className={style(css, 'cards__title')}>Conditions</div>
-              <div className={style(css, 'cards__text')}>
-                Bringing premium healthcare features to your fingertips.
-              </div>
-            </article>
-          </div>
-          <div className={style(css, 'cards__decor cards__decor_1')}></div>
-          <div className={style(css, 'cards__decor cards__decor_2')}></div>
-          <div className={style(css, 'cards__decor cards__decor_3')}></div>
-          <div className={style(css, 'cards__decor cards__decor_4')}></div>
+          </TextContent>
         </div>
+        <CardsBlock data={cardsData} />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HealthCareGoCorona
+export default SectionHealthCare;

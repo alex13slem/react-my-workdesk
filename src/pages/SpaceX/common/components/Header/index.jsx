@@ -1,6 +1,6 @@
-import css from './header.module.scss'
-import logo from '../../../img/spacex_logo.webp'
-import { Link } from 'react-router-dom'
+import css from './style.module.scss';
+import logo from '../../../img/spacex_logo.webp';
+import {Link} from 'react-router-dom';
 
 const HeaderSpaceX = () => {
   return (
@@ -8,19 +8,19 @@ const HeaderSpaceX = () => {
       <div className={css['wrap']}>
         <nav className={css['navbar']}>
           <a className={css['site-logo']}>
-            <img className={css['img']} src={logo} alt='SpaceX' />
+            <img className={css['img']} src={logo} alt="SpaceX" />
           </a>
-          <input type='checkbox' name='burger' id='burger-toggle' />
+          <input type="checkbox" name="burger" id="burger-toggle" />
           <button className={css['toggler']}>
-            <label htmlFor='burger-toggle'>
+            <label htmlFor="burger-toggle">
               <span className={css['toggler-icon']}>
-                <svg xmlnsname='http://www.w3.org/2000/svg' viewBox='0 0 30 30'>
+                <svg xmlnsname="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                   <path
-                    stroke='rgba(0, 0, 0, 0.5)'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                    strokeMiterlimit='10'
-                    d='M4 7h22M4 15h22M4 23h22'
+                    stroke="rgba(0, 0, 0, 0.5)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    d="M4 7h22M4 15h22M4 23h22"
                   />
                 </svg>
               </span>
@@ -52,7 +52,7 @@ const HeaderSpaceX = () => {
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default HeaderSpaceX
+export default HeaderSpaceX;

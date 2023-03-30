@@ -1,0 +1,43 @@
+.experts {
+	background: #fafbfd;
+}
+.container {
+	padding: 105px 70px 115px 40px !important;
+	@media (max-width: 991.98px) {
+		display: flex;
+		flex-direction: column;
+		padding: 50px 15px !important;
+	}
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@media (max-width: 991.98px) {
+		flex-direction: column;
+	}
+}
+.board {
+	margin-bottom: 80px;
+}
+
+.block-text {
+	max-width: 365px;
+	margin-right: 15px;
+	@media (max-width: 991.98px) {
+		margin-bottom: 50px;
+	}
+}
+
+.video {
+	iframe {
+		width: 521.17px;
+		height: 284px;
+		object-fit: cover;
+		@media (max-width: 560px) {
+			width: 360px;
+			height: 200px;
+		}
+	}
+}

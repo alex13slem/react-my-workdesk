@@ -1,0 +1,12 @@
+.form {
+	display: grid;
+	gap: 10px;
+}
+.input {
+	grid-column: span 1;
+}
+.text-area {
+	grid-column: span 2;
+	resize: none;
+	overflow-y: auto;
+}
