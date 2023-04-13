@@ -1,6 +1,6 @@
 import css from './style.module.scss';
 import {formatClassName} from '../../../../../../utils';
-import {ComImage} from '../../../../../../common/components';
+import ComImage from '../../../../../../common/components/ComImage';
 
 const CardsBlock = ({data = []}) => {
   return (

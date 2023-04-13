@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export const Typed = ({texts}) => {
+const Typed = ({texts}) => {
   const [placeHolder, setPlaceHolder] = useState('');
 
   useEffect(() => {
@@ -13,3 +13,5 @@ export const Typed = ({texts}) => {
 
   return <input type="text" placeholder={placeHolder} readOnly />;
 };
+
+export default Typed;

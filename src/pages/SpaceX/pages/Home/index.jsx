@@ -1,8 +1,8 @@
 import {useDocumentTitle} from '../../../../hooks';
 import css from './style.module.scss';
 import cardsData from '../../data/cardsBlock.json';
-import ProposalSpaceX from '../sections/Proposal';
-import CardsBlockSpaceX from '../sections/CardsBlock';
+import ProposalSpaceX from './components/Proposal';
+import CardsBlockSpaceX from '../components/CardsBlock';
 
 const Home = () => {
   useDocumentTitle('SpaceX');
@@ -10,7 +10,8 @@ const Home = () => {
     <main className={css['main']}>
       <div className={css['wrap']}>
         <ProposalSpaceX />
-        <CardsBlockSpaceX data={cardsData} />
+
+        <CardsBlockSpaceX className={css['cards-block']} data={cardsData} />
       </div>
     </main>
   );

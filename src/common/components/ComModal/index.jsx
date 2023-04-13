@@ -15,6 +15,7 @@ const ComModal = ({
   wrapperId,
   isOpen = false,
   setOpen,
+  transTime = 300,
 }) => {
   const nodeRef = useRef(null);
   const closeOnEscapeKey = (e) => e.key === 'Escape' && setOpen(false);
@@ -30,7 +31,7 @@ const ComModal = ({
     <ReactPortal wrapperId={wrapperId}>
       <CSSTransition
         in={isOpen}
-        timeout={{entry: 0, exit: 300}}
+        timeout={{entry: 0, exit: transTime}}
         unmountOnExit
         classNames={{
           enterDone: formatClassName(

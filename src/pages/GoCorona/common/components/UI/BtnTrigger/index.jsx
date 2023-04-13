@@ -1,4 +1,4 @@
-import {ComBtn} from '../../../../../../common/components';
+import ComBtn from '../../../../../../common/components/ComBtn';
 import css from './style.module.scss';
 
 const BtnTrigger = ({svg, title, description, ...args}) => {

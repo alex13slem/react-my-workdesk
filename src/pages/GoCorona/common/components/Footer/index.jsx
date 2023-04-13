@@ -1,22 +1,18 @@
 import css from './footer.module.scss';
-
-import googleLogo from '../../../img/footer/1.svg';
-import appleLogo from '../../../img/footer/2.svg';
 import {SVGAppleLogo, SVGGoogleLogo} from '../images/Logos';
+import ComBtn from '../../../../../common/components/ComBtn';
 
 const Footer = () => {
   return (
     <footer>
       <div className={css['container']}>
         <div className={css['icons']}>
-          <a href="#">
+          <ComBtn>
             <SVGGoogleLogo />
-            {/* <img src={googleLogo} alt="google_play" /> */}
-          </a>
-          <a href="#">
+          </ComBtn>
+          <ComBtn>
             <SVGAppleLogo />
-            {/* <img src={appleLogo} alt="app_store" /> */}
-          </a>
+          </ComBtn>
         </div>
       </div>
     </footer>

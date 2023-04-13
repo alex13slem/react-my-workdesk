@@ -1,0 +1,79 @@
+/*---------sect-proposal start---------*/
+.proposal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text,
+.message {
+  font-size: 25px;
+  color: #ffbbbb;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    -90deg,
+    #ff3f04 0%,
+    #ffffff 90%,
+    #ffffff 100%
+  );
+}
+.text {
+  z-index: -2;
+  position: relative;
+  b {
+    text-transform: uppercase;
+    font-size: 58px;
+    line-height: 1.2;
+  }
+}
+
+.btn {
+  position: absolute;
+  bottom: calc(32% + 50px);
+  left: calc(50% - 585px);
+  transform-origin: right;
+  &:hover {
+    transform: scaleX(102%) translateX(-5%);
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 406px;
+    height: 57px;
+    left: 100%;
+    top: 100%;
+    background: url('/src/pages/SpaceX/img/arrow_start.webp') 0 0 no-repeat;
+  }
+}
+
+/*---------sect-proposal end---------*/
+/*---------sect-proposal media start---------*/
+@media (max-width: 1199px) {
+  .proposal {
+    align-items: center;
+    gap: 8vh;
+  }
+  .text {
+    z-index: 0;
+  }
+  .btn {
+    position: relative;
+    inset: auto;
+
+    span {
+      display: none;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .text {
+    font-size: 18px;
+    b {
+      font-size: 38px;
+    }
+  }
+}
+/*---------sect-proposal media end---------*/

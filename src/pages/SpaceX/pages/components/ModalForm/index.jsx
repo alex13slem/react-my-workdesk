@@ -1,40 +1,29 @@
-import {useMemo} from 'react';
 import {useForm} from 'react-hook-form';
 import ComForm from '../../../../../common/components/ComForm';
 import BtnSpaceX from '../../../common/components/UI/BtnSpaceX';
-import InputSpaceX from '../../../common/components/UI/InputSpaceX';
 import ModalSpaceX from '../../../common/components/UI/ModalSpaceX';
-import TextAreaSpaceX from '../../../common/components/UI/TextAreaSpaceX';
 import {useModalFormState} from '../../../store';
 import css from './style.module.scss';
+import {errorsType, regExp} from '../../../../../utils/validate';
+import FieldSpaceX from '../../../common/components/UI/FieldSpaceX';
 
 const ModalForm = () => {
-  const {open: isOpen, setOpen} = useModalFormState();
+  const {open: isOpen, setOpen, send, setSend} = useModalFormState();
   const {
     register,
     handleSubmit,
-    watch,
-    formState: {errors},
+    formState: {isSubmitted, errors},
+    reset,
   } = useForm();
 
-  const regexps = {
-    email:
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    phone: /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/,
-  };
-  const {email: regEmail, phone: regPhone} = regexps;
-
-  const errorsText = {
-    required: 'Поле обязательно к заполнению',
-    minLenght: (value) => `Минимальное количество символов: ${value}`,
-    validate: 'Некорректно введены данные',
-  };
-
   const submitAction = (data) => {
-    const greetingData = {привет_друг: 'рад тебя тут видеть', ...data};
+    const greetingData = {...data};
     alert(JSON.stringify(greetingData));
     setOpen(false);
+    reset();
+    setSend(true);
   };
+
   return (
     <ModalSpaceX
       title="Оставь свои контакты"
@@ -47,39 +36,40 @@ const ModalForm = () => {
       setOpen={setOpen}
     >
       <ComForm className={css['form']} onSubmit={handleSubmit(submitAction)}>
-        <InputSpaceX
-          className={css['input']}
-          aria-invalid={errors?.userName ? 'true' : 'false'}
+        <FieldSpaceX
           {...register('userName', {
-            required: true,
-            minLength: 2,
+            ...errorsType.required,
+            ...errorsType.minLength(2),
           })}
-          placeholder="Имя"
-          error={
-            errors?.userName?.type === 'required'
-              ? errorsText.required
-              : errors?.userName?.type === 'minLength'
-              ? errorsText.minLenght(2)
-              : null
-          }
-        />
-        <InputSpaceX
+          error={{...errors.userName, isSubmitted}}
           className={css['input']}
-          aria-invalid={errors?.userEmailOrPhone ? 'true' : 'false'}
-          {...register('userEmailOrPhone', {
-            required: true,
-            validate: (value) => regEmail.test(value) || regPhone.test(value),
-          })}
-          placeholder="Телефон или почта"
-          error={
-            errors?.userEmailOrPhone?.type === 'required'
-              ? errorsText.required
-              : errors?.userEmailOrPhone?.type === 'validate'
-              ? errorsText.validate
-              : null
-          }
+          placeholder="Имя"
         />
-        <TextAreaSpaceX
+        <FieldSpaceX
+          {...register('userEmailOrPhone', {
+            ...errorsType.required,
+            validate: (value) =>
+              regExp.email.test(value) ||
+              regExp.phone.test(value) ||
+              errorsType.validate.message,
+          })}
+          error={{
+            ...errors.userEmailOrPhone,
+            isSubmitted,
+          }}
+          className={css['input']}
+          placeholder="Телефон или почта"
+        />
+        <FieldSpaceX
+          {...register('userMessage', {
+            ...errorsType.required,
+            ...errorsType.minLength(5),
+          })}
+          error={{
+            ...errors.userMessage,
+            isSubmitted,
+          }}
+          fieldType="textarea"
           rows="6"
           className={css['text-area']}
           placeholder="Напиши своё послание..."

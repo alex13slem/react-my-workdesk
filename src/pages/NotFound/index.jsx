@@ -1,4 +1,4 @@
-import {ComBtn} from '../../common/components';
+import ComBtn from '../../common/components/ComBtn';
 import {useDocumentTitle} from '../../hooks/';
 import css from './style.module.scss';
 

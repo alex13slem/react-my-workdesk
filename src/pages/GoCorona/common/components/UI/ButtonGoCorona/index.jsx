@@ -1,15 +1,16 @@
-import {ComBtn} from '../../../../../../common/components';
+import ComBtn from '../../../../../../common/components/ComBtn';
 import {formatClassName} from '../../../../../../utils/format';
 import css from './button.module.scss';
 
-const ButtonGoCorona = ({children, href, to, className, blue}) => {
-  const blueModificator = blue ? css['button_blue'] : '';
-
+const ButtonGoCorona = ({children, className, blue, ...props}) => {
   return (
     <ComBtn
-      to={to}
-      href={href}
-      className={formatClassName(css['button'], blueModificator, className)}
+      className={formatClassName(
+        css['button'],
+        blue && css['button_blue'],
+        className
+      )}
+      {...props}
     >
       {children}
     </ComBtn>

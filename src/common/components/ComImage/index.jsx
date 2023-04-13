@@ -1,4 +1,4 @@
-export const ComImage = ({src, ...args}) => {
+const ComImage = ({src, ...args}) => {
   let Image;
   if (typeof src === 'string') {
     Image = () => <img src={src} {...args} />;
@@ -12,3 +12,5 @@ export const ComImage = ({src, ...args}) => {
   }
   return <Image />;
 };
+
+export default ComImage;

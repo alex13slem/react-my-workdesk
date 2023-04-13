@@ -1,6 +1,6 @@
 import {Link, NavLink} from 'react-router-dom';
 
-export const ComBtn = ({children, to, navigate, href, ...args}) => {
+const ComBtn = ({children, to, navigate, href, ...args}) => {
   const VarLink = navigate ? NavLink : Link;
   return to ? (
     <VarLink to={to} {...args}>
@@ -14,3 +14,5 @@ export const ComBtn = ({children, to, navigate, href, ...args}) => {
     <button {...args}>{children}</button>
   );
 };
+
+export default ComBtn;

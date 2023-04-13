@@ -20,6 +20,7 @@ const ModalSpaceX = ({
         enterDone: css['anim-enter-done'],
         exit: css['anim-exit'],
       }}
+      transTime={300}
     >
       <div className={css['header']}>
         <span className={css['title']}>{title}</span>

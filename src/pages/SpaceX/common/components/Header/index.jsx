@@ -1,57 +1,70 @@
 import css from './style.module.scss';
 import logo from '../../../img/spacex_logo.webp';
-import {Link} from 'react-router-dom';
+import ComBtn from '../../../../../common/components/ComBtn';
+import {formatClassName} from '../../../../../utils/format';
+import {useRef, useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars, faXmark} from '@fortawesome/free-solid-svg-icons';
+import ComHeader from '../../../../../common/components/ComHeader';
 
 const HeaderSpaceX = () => {
-  return (
-    <header className={css['header']}>
-      <div className={css['wrap']}>
-        <nav className={css['navbar']}>
-          <a className={css['site-logo']}>
-            <img className={css['img']} src={logo} alt="SpaceX" />
-          </a>
-          <input type="checkbox" name="burger" id="burger-toggle" />
-          <button className={css['toggler']}>
-            <label htmlFor="burger-toggle">
-              <span className={css['toggler-icon']}>
-                <svg xmlnsname="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                  <path
-                    stroke="rgba(0, 0, 0, 0.5)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeMiterlimit="10"
-                    d="M4 7h22M4 15h22M4 23h22"
-                  />
-                </svg>
-              </span>
-            </label>
-          </button>
+  const rootRef = useRef();
+  const [showNav, setShowNav] = useState(false);
+  const classLink = ({isActive}) =>
+    isActive ? formatClassName(css['link'], css['active']) : css['link'];
 
-          <div className={css['collapse']}>
-            <div className={css['navbar-nav']}>
-              <Link className={css['item']} to={'/'}>
-                Главная
-              </Link>
-              <Link className={css['item']} to={'/'}>
-                Технология
-              </Link>
-              <Link className={css['item']} to={'/'}>
-                График полётов
-              </Link>
-              <Link className={css['item']} to={'/'}>
-                Гарантии
-              </Link>
-              <Link className={css['item']} to={'/'}>
-                О компании
-              </Link>
-              <Link className={css['item']} to={'/'}>
-                Контакты
-              </Link>
-            </div>
-          </div>
+  const linksData = [
+    {
+      id: 1,
+      link: '/spacex',
+      text: 'Главная',
+    },
+    {
+      id: 2,
+      link: '/',
+      text: 'Каталог',
+    },
+    {
+      id: 3,
+      link: '/',
+      text: 'Новости',
+    },
+    {
+      id: 4,
+      link: '/',
+      text: 'О нас',
+    },
+    {
+      id: 5,
+      link: '/',
+      text: 'Контакты',
+    },
+  ];
+
+  return (
+    <ComHeader ref={rootRef} className={css['header']}>
+      <div className={css['wrap']}>
+        <ComBtn className={css['site-logo']}>
+          <img src={logo} alt="SpaceX" />
+        </ComBtn>
+
+        <nav className={formatClassName(css['navbar'], showNav && css['show'])}>
+          {linksData.map(({id, link, text}) => (
+            <ComBtn key={id} className={classLink} navigate to={link}>
+              {text}
+            </ComBtn>
+          ))}
         </nav>
+
+        <button className={css['burger']} onClick={() => setShowNav(!showNav)}>
+          {!showNav ? (
+            <FontAwesomeIcon icon={faBars} />
+          ) : (
+            <FontAwesomeIcon icon={faXmark} />
+          )}
+        </button>
       </div>
-    </header>
+    </ComHeader>
   );
 };
 

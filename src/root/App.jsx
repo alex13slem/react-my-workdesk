@@ -1,6 +1,5 @@
-import {Routes, Route, Link, RouterProvider} from 'react-router-dom';
-import {RootRouter} from '../router';
 import './style.scss';
+import RootRouter from '../router/RootRouter';
 
 export const App = () => {
   return <RootRouter />;

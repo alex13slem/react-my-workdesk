@@ -1,4 +1,4 @@
-import {Typed} from '../../../../common/components';
+import Typed from '../../../../common/components/Typed';
 import css from './google.module.scss';
 
 export const Google = () => {
