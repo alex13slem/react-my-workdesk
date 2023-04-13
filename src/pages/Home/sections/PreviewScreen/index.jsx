@@ -15,12 +15,12 @@ import {SwiperButtonGo} from './components/Swiper/components/SwiperBtns';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {SVGDesktop, SVGPhone, SVGTablet} from '../../img/screens';
+import {formatClassName} from '../../../../utils';
 import {
   SwiperButtonNext,
   SwiperButtonPrev,
-} from '../../../../common/components';
-import {SVGDesktop, SVGPhone, SVGTablet} from '../../img/screens';
-import {formatClassName} from '../../../../utils';
+} from '../../../../common/components/swiper/SwiperBtns';
 
 const PreviewScreen = ({className}) => {
   const [controlledSwiperMain, setControlledSwiperMain] = useState({});
