@@ -1,6 +1,6 @@
-import ComBtn from '../../common/components/ComBtn';
-import {useDocumentTitle} from '../../hooks/';
+import {useDocumentTitle} from 'hooks';
 import css from './style.module.scss';
+import ComBtn from 'comComponents/ComBtn';
 
 const NotFound = () => {
   useDocumentTitle('Not Found 404 :(');

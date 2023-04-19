@@ -1,31 +1,43 @@
-import ModalForm from '../../../components/ModalForm';
-import {useModalFormState} from '../../../../store';
-import BtnSpaceX from '../../../../common/components/UI/BtnSpaceX';
-import css from './style.module.scss';
+import {useModalFormState} from '@SpaceX/store';
+
+import ModalForm from '@SpaceX/components/ModalForm';
+
+import styled from 'styled-components';
+import Button from './components/Button';
+import {proposalText} from './mainCss';
+import Title from './components/Title';
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 1199px) {
+    align-items: center;
+    gap: 8vh;
+  }
+`;
+
+const Message = styled.h2`
+  ${proposalText}
+`;
 
 const ProposalSpaceX = () => {
   const {open: isOpen, setOpen} = useModalFormState();
   const {send} = useModalFormState();
 
   return (
-    <section className={css['proposal']}>
-      <h1 className={css['text']}>
-        <b>ПУТЕШЕСТВИЕ</b>
-        <br />
-        на красную планету
-      </h1>
+    <Section>
+      <Title />
 
       {!send ? (
-        <BtnSpaceX className={css['btn']} glare onClick={setOpen}>
-          Начать путешествие
-          <span></span>
-        </BtnSpaceX>
+        <Button onClick={setOpen} />
       ) : (
-        <h2 className={css['message']}>До встречи на орбите!</h2>
+        <Message>До встречи на орбите!</Message>
       )}
 
       <ModalForm />
-    </section>
+    </Section>
   );
 };
 

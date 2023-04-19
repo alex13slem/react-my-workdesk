@@ -1,9 +1,9 @@
+import AchievementBoard from '@GoCorona/UI/AchievementBoard';
 import css from './style.module.scss';
-import boardItems from '../../data/achievementBoard.json';
-import AchievementBoard from '../../common/components/UI/AchievementBoard';
-import TextTitle from '../../common/components/UI/TextTitle';
-import TextContent from '../../common/components/UI/TextContent';
-import ButtonGoCorona from '../../common/components/UI/ButtonGoCorona';
+import TextTitle from '@GoCorona/UI/TextTitle';
+import TextContent from '@GoCorona/UI/TextContent';
+import ButtonGoCorona from '@GoCorona/UI/ButtonGoCorona';
+import boardItems from '@GoCorona/data/achievementBoard.json';
 
 const SectionExperts = () => {
   return (

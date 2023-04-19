@@ -1,5 +1,5 @@
-import Typed from '../../../../common/components/Typed';
-import css from './google.module.scss';
+import Typed from 'comComponents/Typed';
+import css from './style.module.scss';
 
 export const Google = () => {
   return (

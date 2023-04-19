@@ -1,9 +1,10 @@
-import {useDocumentTitle} from '../../hooks';
-import {SVGBgTable, SVGFlowerFrame} from './img';
-import Contacts from './sections/Contacts';
-import Greeting from './sections/Greeting';
-import PreviewScreen from './sections/PreviewScreen';
 import css from './style.module.scss';
+import {useDocumentTitle} from 'hooks';
+
+import Contacts from './components/Contacts';
+import Greeting from './components/Greeting';
+import {SVGBgTable, SVGFlowerFrame} from './UI/SVGImages';
+import PreviewScreen from './components/PreviewScreen';
 
 const Home = () => {
   useDocumentTitle('Welcome!');

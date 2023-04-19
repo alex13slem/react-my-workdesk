@@ -1,5 +1,5 @@
+import css from './style.module.scss';
 import {Google} from './components/Google';
-import css from './greeting.module.scss';
 
 export const Greeting = () => {
   return (

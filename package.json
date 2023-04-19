@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "resolutions": {
+    "styled-components": "^5"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
@@ -20,6 +23,7 @@
     "react-router-dom": "^6.4.4",
     "react-transition-group": "^4.4.5",
     "sass": "^1.59.3",
+    "styled-components": "^5.3.9",
     "swiper": "^8.4.5",
     "zustand": "^4.3.6"
   },

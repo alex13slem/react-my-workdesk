@@ -1,5 +1,5 @@
 import {RouterSpaceX} from './router';
-import './style.scss';
+import './fonts/fonts.scss';
 
 const SpaceX = () => <RouterSpaceX />;
 

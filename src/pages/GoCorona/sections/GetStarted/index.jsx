@@ -1,9 +1,9 @@
-import {SVGDoctorAndGirl, SVGIconVideo} from '../../common/components/images';
-import BtnTrigger from '../../common/components/UI/BtnTrigger';
-import ButtonGoCorona from '../../common/components/UI/ButtonGoCorona';
-import TextContent from '../../common/components/UI/TextContent';
-import TextTitle from '../../common/components/UI/TextTitle';
+import TextTitle from '@GoCorona/UI/TextTitle';
 import css from './style.module.scss';
+import TextContent from '@GoCorona/UI/TextContent';
+import ButtonGoCorona from '@GoCorona/UI/ButtonGoCorona';
+import {SVGDoctorAndGirl, SVGIconVideo} from '@GoCorona/UI/SVGimages';
+import BtnTrigger from '@GoCorona/UI/BtnTrigger';
 
 const SectionGetStarted = () => {
   return (

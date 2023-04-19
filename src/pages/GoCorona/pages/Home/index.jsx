@@ -1,9 +1,11 @@
-import {useDocumentTitle} from '../../../../hooks';
-import SectionExperts from '../../sections/Experts';
-import SectionGetStarted from '../../sections/GetStarted';
-import SectionHealthCare from '../../sections/HealthCare';
-import SectionStaySafe from '../../sections/StaySafe';
 import css from './style.module.scss';
+
+import {useDocumentTitle} from 'hooks';
+
+import SectionGetStarted from '@GoCorona/sections/GetStarted';
+import SectionStaySafe from '@GoCorona/sections/StaySafe';
+import SectionExperts from '@GoCorona/sections/Experts';
+import SectionHealthCare from '@GoCorona/sections/HealthCare';
 
 const Home = () => {
   useDocumentTitle('GoCorona');

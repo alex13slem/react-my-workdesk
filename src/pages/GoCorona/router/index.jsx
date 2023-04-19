@@ -1,6 +1,6 @@
+import Layout from '@GoCorona/components/Layout';
+import Home from '@GoCorona/pages/Home';
 import {Route, Routes} from 'react-router-dom';
-import Layout from '../common/components/Layout';
-import Home from '../pages/Home';
 
 const RouterGoCorona = () => {
   return (

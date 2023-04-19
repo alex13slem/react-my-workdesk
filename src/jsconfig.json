@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "comComponents/*": ["./components/*"],
+      "@GoCorona/*": ["./pages/GoCorona/*"],
+      "@Home/*": ["./pages/Home/*"],
+      "@NotFound/*": ["./pages/NotFound/*"],
+      "@SpaceX/*": ["./pages/SpaceX/*"]
+    }
+  }
+}
