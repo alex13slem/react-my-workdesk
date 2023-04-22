@@ -1,4 +1,4 @@
-import BtnSpaceX from '@SpaceX/UI/BtnSpaceX';
+import {BtnSpaceX} from '@SpaceX/UI/Buttons';
 import styled from 'styled-components';
 
 const StyledButton = styled(BtnSpaceX)`

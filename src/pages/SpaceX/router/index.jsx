@@ -1,6 +1,6 @@
 import {Route, Routes} from 'react-router-dom';
-import Layout from '../components/Layout';
 import Home from '../pages/Home';
+import Layout from '@SpaceX/components/Layout';
 
 export const RouterSpaceX = () => {
   return (

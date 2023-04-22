@@ -63,12 +63,10 @@ const Btn = styled.button`
   }
 `;
 
-const BtnSpaceX = ({children = 'Нажми', className, ...props}) => {
+export const BtnSpaceX = ({children = 'Нажми', className, ...props}) => {
   return (
     <Btn className={className} {...props}>
       {children}
     </Btn>
   );
 };
-
-export default BtnSpaceX;

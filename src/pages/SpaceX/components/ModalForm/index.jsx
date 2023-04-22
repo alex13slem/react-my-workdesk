@@ -1,17 +1,47 @@
 import {useForm} from 'react-hook-form';
+import styled from 'styled-components';
 
-import css from './style.module.scss';
-
-import {useModalFormState} from '@SpaceX/store';
 import {errorsType, regExp} from 'utils/validate';
 
 import ComForm from 'comComponents/ComForm';
-import FieldSpaceX from '@SpaceX/UI/FieldSpaceX';
 import ModalSpaceX from '@SpaceX/UI/ModalSpaceX';
-import BtnSpaceX from '@SpaceX/UI/BtnSpaceX';
+import {useContext} from 'react';
+import {ModalContext} from '@SpaceX/store';
+import {FieldGroup, Input, Textarea} from '@SpaceX/UI/Fields';
+import {AlertBtn, BtnSpaceX} from '@SpaceX/UI/Buttons';
+
+const Form = styled(ComForm)`
+  display: grid;
+  gap: 10px;
+
+  justify-content: center;
+
+  grid-template-columns: repeat(2, 230px);
+
+  @media (orientation: portrait) {
+    grid-template-columns: 230px;
+  }
+`;
+
+const InputGroup = styled(FieldGroup)`
+  grid-column: span 1;
+`;
+
+const TextareaGroup = styled(FieldGroup)`
+  grid-column: span 2;
+
+  @media (orientation: portrait) {
+    grid-column: span 1;
+  }
+`;
 
 const ModalForm = () => {
-  const {open: isOpen, setOpen, send, setSend} = useModalFormState();
+  const {
+    modalOpen: isOpen,
+    modalOpenHandler: setOpen,
+    modalSendHandler: setSend,
+  } = useContext(ModalContext);
+
   const {
     register,
     handleSubmit,
@@ -38,46 +68,54 @@ const ModalForm = () => {
       isOpen={isOpen}
       setOpen={setOpen}
     >
-      <ComForm className={css['form']} onSubmit={handleSubmit(submitAction)}>
-        <FieldSpaceX
-          {...register('userName', {
-            ...errorsType.required,
-            ...errorsType.minLength(2),
-          })}
-          error={{...errors.userName, isSubmitted}}
-          className={css['input']}
-          placeholder="Имя"
-        />
-        <FieldSpaceX
-          {...register('userEmailOrPhone', {
-            ...errorsType.required,
-            validate: (value) =>
-              regExp.email.test(value) ||
-              regExp.phone.test(value) ||
-              errorsType.validate.message,
-          })}
-          error={{
-            ...errors.userEmailOrPhone,
-            isSubmitted,
-          }}
-          className={css['input']}
-          placeholder="Телефон или почта"
-        />
-        <FieldSpaceX
-          {...register('userMessage', {
-            ...errorsType.required,
-            ...errorsType.minLength(5),
-          })}
-          error={{
-            ...errors.userMessage,
-            isSubmitted,
-          }}
-          fieldType="textarea"
-          rows="6"
-          className={css['text-area']}
-          placeholder="Напиши своё послание..."
-        />
-      </ComForm>
+      <Form onSubmit={handleSubmit(submitAction)}>
+        <InputGroup
+          isValid={isSubmitted ? (errors.userName ? 'invalid' : 'valid') : null}
+        >
+          <Input
+            {...register('userName', {
+              ...errorsType.required,
+              ...errorsType.minLength(2),
+            })}
+            placeholder="Имя"
+          />
+          {isSubmitted && <AlertBtn message={errors.userName?.message} />}
+        </InputGroup>
+        <InputGroup
+          isValid={
+            isSubmitted ? (errors.userEmailOrPhone ? 'invalid' : 'valid') : null
+          }
+        >
+          <Input
+            {...register('userEmailOrPhone', {
+              ...errorsType.required,
+              validate: (value) =>
+                regExp.email.test(value) ||
+                regExp.phone.test(value) ||
+                errorsType.validate.message,
+            })}
+            placeholder="Телефон или почта"
+          />
+          {isSubmitted && (
+            <AlertBtn message={errors.userEmailOrPhone?.message} />
+          )}
+        </InputGroup>
+        <TextareaGroup
+          isValid={
+            isSubmitted ? (errors.userMessage ? 'invalid' : 'valid') : null
+          }
+        >
+          <Textarea
+            {...register('userMessage', {
+              ...errorsType.required,
+              ...errorsType.minLength(5),
+            })}
+            rows="6"
+            placeholder="Напиши своё послание..."
+          />
+          {isSubmitted && <AlertBtn message={errors.userMessage?.message} />}
+        </TextareaGroup>
+      </Form>
     </ModalSpaceX>
   );
 };

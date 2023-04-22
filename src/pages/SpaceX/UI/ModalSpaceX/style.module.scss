@@ -31,12 +31,12 @@
   }
 
   &::after {
-    background: url('/src/pages/SpaceX/img/left_glare.webp') 0 0 no-repeat;
+    background: url('img-space-x/left_glare.webp') 0 0 no-repeat;
     left: -16px;
     bottom: -16px;
   }
   &::before {
-    background: url('/src/pages/SpaceX/img/right_glare.webp') 0 0 no-repeat;
+    background: url('img-space-x/right_glare.webp') 0 0 no-repeat;
     right: -16px;
     top: -16px;
   }

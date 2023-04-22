@@ -1,11 +1,9 @@
-import {useModalFormState} from '@SpaceX/store';
-
-import ModalForm from '@SpaceX/components/ModalForm';
-
 import styled from 'styled-components';
 import Button from './components/Button';
 import {proposalText} from './mainCss';
 import Title from './components/Title';
+import {useContext} from 'react';
+import {ModalContext} from '@SpaceX/store';
 
 const Section = styled.section`
   display: flex;
@@ -23,8 +21,7 @@ const Message = styled.h2`
 `;
 
 const ProposalSpaceX = () => {
-  const {open: isOpen, setOpen} = useModalFormState();
-  const {send} = useModalFormState();
+  const {modalSend: send, modalOpenHandler: setOpen} = useContext(ModalContext);
 
   return (
     <Section>
@@ -35,8 +32,6 @@ const ProposalSpaceX = () => {
       ) : (
         <Message>До встречи на орбите!</Message>
       )}
-
-      <ModalForm />
     </Section>
   );
 };
