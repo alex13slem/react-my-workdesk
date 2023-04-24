@@ -1,17 +1,19 @@
 import {Link, NavLink} from 'react-router-dom';
 
-const ComBtn = ({children, to, navigate, href, ...args}) => {
+const ComBtn = ({children, to, navigate, href, className, ...props}) => {
   const VarLink = navigate ? NavLink : Link;
   return to ? (
-    <VarLink to={to} {...args}>
+    <VarLink className={className} to={to} {...props}>
       {children}
     </VarLink>
   ) : href ? (
-    <a href={href} {...args}>
+    <a className={className} href={href} {...props}>
       {children}
     </a>
   ) : (
-    <button {...args}>{children}</button>
+    <button className={className} {...props}>
+      {children}
+    </button>
   );
 };
 

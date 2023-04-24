@@ -10,7 +10,6 @@ const StyledInput = styled.input`
 `;
 
 export const Input = forwardRef(({className, isValid, ...props}, ref) => {
-  // console.log(isValid);
   return (
     <StyledInput ref={ref} className={className} isValid={isValid} {...props} />
   );

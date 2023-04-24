@@ -28,7 +28,7 @@ const StyledButton = styled(ComBtn)`
   }
 `;
 
-export const Button = ({children, className, ...props}) => {
+export const SocialLink = ({children, className, ...props}) => {
   return (
     <StyledButton className={className} {...props}>
       {children}

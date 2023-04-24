@@ -15,7 +15,7 @@ export const swiperImgs = {
       active: galact.active,
       src: 'img-home/desktop/galactigun.webp',
       alt: galact.name,
-      btnSizePos: {
+      sizeAndPos: {
         bottom: '39.5%',
         left: '11.8%',
         width: '37.6%',
@@ -28,7 +28,7 @@ export const swiperImgs = {
       active: corona.active,
       src: 'img-home/desktop/gocorona.webp',
       alt: corona.name,
-      btnSizePos: {
+      sizeAndPos: {
         bottom: '39.5%',
         left: '11.8%',
         width: '31%',
@@ -41,7 +41,7 @@ export const swiperImgs = {
       active: spacex.active,
       src: 'img-home/desktop/spacex.webp',
       alt: spacex.name,
-      btnSizePos: {
+      sizeAndPos: {
         bottom: '39.5%',
         left: '11.8%',
         width: '31%',
@@ -54,7 +54,7 @@ export const swiperImgs = {
       active: zapov.active,
       src: 'img-home/desktop/zapovednik.webp',
       alt: zapov.name,
-      btnSizePos: {
+      sizeAndPos: {
         bottom: '26.8%',
         left: '11.7%',
         width: '11.8%',
@@ -67,7 +67,7 @@ export const swiperImgs = {
       active: uber.active,
       src: 'img-home/desktop/uber.webp',
       alt: uber.name,
-      btnSizePos: {
+      sizeAndPos: {
         bottom: '39.5%',
         left: '11.7%',
         width: '37.9%',

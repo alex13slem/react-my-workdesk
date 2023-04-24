@@ -1,25 +1,17 @@
 import {useSwiper} from '/node_modules/swiper/react/swiper-react.js';
 
-export const SwiperButtonNext = ({children, style, className}) => {
+export const SwiperButtonNext = ({children, className, ...props}) => {
   const swiper = useSwiper();
   return (
-    <button
-      className={className}
-      style={style}
-      onClick={() => swiper.slideNext()}
-    >
+    <button className={className} onClick={() => swiper.slideNext()} {...props}>
       {children}
     </button>
   );
 };
-export const SwiperButtonPrev = ({children, style, className}) => {
+export const SwiperButtonPrev = ({children, className, ...props}) => {
   const swiper = useSwiper();
   return (
-    <button
-      className={className}
-      style={style}
-      onClick={() => swiper.slidePrev()}
-    >
+    <button className={className} onClick={() => swiper.slidePrev()} {...props}>
       {children}
     </button>
   );

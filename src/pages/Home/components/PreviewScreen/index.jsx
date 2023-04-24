@@ -1,99 +1,54 @@
 import {useState} from 'react';
+import {SwiperContext} from './context';
+import styled from 'styled-components';
 
-import css from './style.module.scss';
 import './components/Swiper/swiper.scss';
 
 import '/node_modules/swiper/swiper.scss';
 import '/node_modules/swiper/modules/navigation/navigation.scss';
 import '/node_modules/swiper/modules/effect-fade/effect-fade.scss';
 
-import {EffectFade, Controller} from 'swiper';
-import {Swiper, SwiperSlide} from '/node_modules/swiper/react/swiper-react.js';
-import {SwiperButtonGo} from './components/Swiper/components/SwiperBtns';
+import Desktop from './components/Desktop';
+import Tablet from './components/Tablet';
+import Phone from './components/Phone';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
-import {swiperImgs} from './components/Swiper/data/swiperImgs';
-import {SVGDesktop, SVGPhone, SVGTablet} from '@Home/UI/SVGImages/screens';
-import {SwiperButtonNext, SwiperButtonPrev} from 'comComponents/swiper';
-import {formatClassName} from 'utils';
+const Section = styled.section`
+  position: relative;
+  margin-left: 70px;
+  width: calc(50vh + 20%);
+
+  perspective: 150vh;
+
+  @media (max-aspect-ratio: 16 / 11) {
+    margin-bottom: 13%;
+  }
+
+  @media (orientation: portrait) {
+    width: 100%;
+    margin-inline: auto;
+    justify-self: end;
+  }
+`;
 
 const PreviewScreen = ({className}) => {
-  const [controlledSwiperMain, setControlledSwiperMain] = useState({});
-  const [controlledSwiperSide, setControlledSwiperSide] =
-    useState(controlledSwiperMain);
-  const activeSlides = (type) =>
-    swiperImgs[type].filter((value) => value['active'] === true);
+  const [ctrldSwiperMain, setCtrldSwiperMain] = useState({});
+  const [ctrldSwiperSide, setCtrldSwiperSide] = useState(ctrldSwiperMain);
 
   return (
-    <section className={formatClassName(className, css['root'])}>
-      <div className={css['desktop']}>
-        <SVGDesktop />
-        <Swiper
-          controller={{control: controlledSwiperMain}}
-          className={css['screen']}
-          modules={[EffectFade, Controller]}
-          effect="fade"
-          loop
-        >
-          {activeSlides('desktop').map(
-            ({id, src, alt, btnSizePos, navLink}) => (
-              <SwiperSlide key={id} className={css['slide']}>
-                <img src={src} alt={alt} />
-
-                <SwiperButtonGo
-                  className={css['btn-go']}
-                  navLink={navLink}
-                  style={btnSizePos}
-                ></SwiperButtonGo>
-              </SwiperSlide>
-            )
-          )}
-          <span slot="container-end">
-            <SwiperButtonPrev className={css['btn-prev']}>
-              <FontAwesomeIcon style={{height: 'inherit'}} icon={faAngleLeft} />
-            </SwiperButtonPrev>
-            <SwiperButtonNext className={css['btn-next']}>
-              <FontAwesomeIcon
-                style={{height: 'inherit'}}
-                icon={faAngleRight}
-              />
-            </SwiperButtonNext>
-          </span>
-        </Swiper>
-      </div>
-      <div className={css['tablet']}>
-        <SVGTablet />
-        <Swiper
-          className={css['screen']}
-          modules={[Controller]}
-          onSwiper={setControlledSwiperMain}
-          controller={{control: controlledSwiperSide}}
-          loop
-        >
-          {activeSlides('tablet').map(({id, src, alt}) => (
-            <SwiperSlide key={id} className={css['slide']}>
-              <img src={src} alt={alt} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className={css['phone']}>
-        <SVGPhone />
-        <Swiper
-          className={css['screen']}
-          modules={[Controller]}
-          onSwiper={setControlledSwiperSide}
-          loop
-        >
-          {activeSlides('mobile').map(({id, src, alt}) => (
-            <SwiperSlide key={id} className={css['slide']}>
-              <img src={src} alt={alt} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
+    <SwiperContext.Provider
+      value={{
+        ctrldSwiperMain,
+        setCtrldSwiperMain,
+        ctrldSwiperSide,
+        setCtrldSwiperSide,
+      }}
+    >
+      <Section className={className}>
+        <Desktop />
+        <Tablet className="tablet" />
+        <Phone className="phone" />
+      </Section>
+    </SwiperContext.Provider>
   );
 };
 
