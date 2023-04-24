@@ -1,44 +1,37 @@
-import css from './style.module.scss';
-
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faCodepen,
   faGithub,
   faTelegram,
 } from '@fortawesome/free-brands-svg-icons';
-import ComBtn from 'comComponents/ComBtn';
-import {formatClassName} from 'utils/format';
+import {Button} from './components';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+`;
 
 const Contacts = ({className}) => {
   return (
-    <section className={formatClassName(className, css['contacts'])}>
-      <ComBtn
-        className={css['btn']}
-        href="https://github.com/alex13slem"
-        target="_blank"
-      >
+    <Section className={className}>
+      <Button href="https://github.com/alex13slem" target="_blank">
         GitHub
         <FontAwesomeIcon icon={faGithub} />
-      </ComBtn>
+      </Button>
 
-      <ComBtn
-        className={css['btn']}
-        href="https://codepen.io/alex13slem"
-        target="_blank"
-      >
+      <Button href="https://codepen.io/alex13slem" target="_blank">
         CodePen
         <FontAwesomeIcon icon={faCodepen} />
-      </ComBtn>
+      </Button>
 
-      <ComBtn
-        className={css['btn']}
-        href="https://t.me/a_s_scherba"
-        target="_blank"
-      >
+      <Button href="https://t.me/a_s_scherba" target="_blank">
         Telegram
         <FontAwesomeIcon icon={faTelegram} />
-      </ComBtn>
-    </section>
+      </Button>
+    </Section>
   );
 };
 

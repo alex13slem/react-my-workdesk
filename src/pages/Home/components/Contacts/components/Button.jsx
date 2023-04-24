@@ -1,11 +1,7 @@
-.contacts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
-}
+import ComBtn from 'comComponents/ComBtn';
+import styled from 'styled-components';
 
-.btn {
+const StyledButton = styled(ComBtn)`
   position: relative;
   text-decoration: underline;
   display: flex;
@@ -30,4 +26,12 @@
   &:active {
     text-shadow: 2.5px 2.5px 0.2px var(--color2);
   }
-}
+`;
+
+export const Button = ({children, className, ...props}) => {
+  return (
+    <StyledButton className={className} {...props}>
+      {children}
+    </StyledButton>
+  );
+};

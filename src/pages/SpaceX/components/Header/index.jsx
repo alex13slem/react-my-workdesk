@@ -23,13 +23,13 @@ const Wrap = styled(LayoutWrap)`
 
 export const HeaderContext = createContext(null);
 
-const HeaderSpaceX = () => {
+const HeaderSpaceX = ({className}) => {
   const rootRef = useRef();
   const [showNav, setShowNav] = useState(false);
 
   return (
     <HeaderContext.Provider value={{showNav, setShowNav}}>
-      <Header ref={rootRef}>
+      <Header ref={rootRef} className={className}>
         <Wrap>
           <SiteLogoBtn />
           <NavBurger />

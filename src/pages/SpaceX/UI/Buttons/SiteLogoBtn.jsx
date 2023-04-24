@@ -43,9 +43,9 @@ const LogoBtn = styled(ComBtn)`
   }
 `;
 
-export const SiteLogoBtn = () => {
+export const SiteLogoBtn = ({className}) => {
   return (
-    <LogoBtn>
+    <LogoBtn className={className}>
       <img src="img-space-x/spacex_logo.webp" alt="SpaceX" />
     </LogoBtn>
   );

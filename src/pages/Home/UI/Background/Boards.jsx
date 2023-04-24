@@ -1,4 +1,4 @@
-export const SVGBgTable = ({className}) => {
+export const Boards = ({className}) => {
   return (
     <svg
       className={className}

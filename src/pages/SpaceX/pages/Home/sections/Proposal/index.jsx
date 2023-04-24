@@ -20,11 +20,11 @@ const Message = styled.h2`
   ${proposalText}
 `;
 
-const ProposalSpaceX = () => {
+const Proposal = ({className}) => {
   const {modalSend: send, modalOpenHandler: setOpen} = useContext(ModalContext);
 
   return (
-    <Section>
+    <Section className={className}>
       <Title />
 
       {!send ? (
@@ -36,4 +36,4 @@ const ProposalSpaceX = () => {
   );
 };
 
-export default ProposalSpaceX;
+export default Proposal;

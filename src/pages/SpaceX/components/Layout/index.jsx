@@ -40,9 +40,9 @@ const Body = styled.div`
   }
 `;
 
-const Layout = () => {
+const Layout = ({className}) => {
   return (
-    <Body>
+    <Body className={className}>
       <HeaderSpaceX />
       <Outlet />
     </Body>

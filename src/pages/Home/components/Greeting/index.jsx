@@ -1,11 +1,24 @@
-import {formatClassName} from 'utils/format';
-import css from './style.module.scss';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  p {
+    font-size: 250%;
+    cursor: default;
+
+    @media (orientation: portrait) {
+      text-align: right;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 190%;
+    }
+  }
+`;
 
 const Greeting = ({children, className}) => {
   return (
-    <section className={formatClassName(className, css['greeting'])}>
+    <Section className={className}>
       <p>{children}</p>
-    </section>
+    </Section>
   );
 };
 

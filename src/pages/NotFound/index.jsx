@@ -1,16 +1,33 @@
 import {useDocumentTitle} from 'hooks';
-import css from './style.module.scss';
-import ComBtn from 'comComponents/ComBtn';
+import {Button} from './UI/Button';
+import styled from 'styled-components';
 
-const NotFound = () => {
+const Root = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+
+  @media (orientation: portrait) {
+    align-items: start;
+  }
+
+  .message {
+    font-size: 70px;
+    text-transform: uppercase;
+  }
+`;
+
+const NotFound = ({className}) => {
   useDocumentTitle('Not Found 404 :(');
   return (
-    <div className={css['root']}>
-      <h1 className={css['message']}>Такой страницы нет</h1>
-      <ComBtn className={css['btn']} to={'/'}>
-        Вернуться на главную
-      </ComBtn>
-    </div>
+    <Root className={className}>
+      <h1 className="message">Такой страницы нет</h1>
+      <Button to={'/'}>Вернуться на главную</Button>
+    </Root>
   );
 };
 

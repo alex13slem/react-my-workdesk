@@ -2,9 +2,9 @@ import {useDocumentTitle} from 'hooks';
 
 import cardsJSON from '@SpaceX/data/cardsBlock.json';
 
-import CardsBlockSpaceX from '@SpaceX/components/CardsBlock';
+import CardsBlock from '@SpaceX/components/CardsBlock';
 
-import ProposalSpaceX from './sections/Proposal';
+import Proposal from './sections/Proposal';
 import styled from 'styled-components';
 import {LayoutWrap} from '@SpaceX/components/Layout';
 import ModalForm from '@SpaceX/components/ModalForm';
@@ -23,7 +23,7 @@ const Wrap = styled(LayoutWrap)`
   }
 `;
 
-const Home = () => {
+const Home = ({className}) => {
   useDocumentTitle('SpaceX');
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
@@ -39,11 +39,11 @@ const Home = () => {
     <ModalContext.Provider
       value={{modalOpen, modalOpenHandler, modalSend, modalSendHandler}}
     >
-      <Main>
+      <Main className={className}>
         <Wrap>
-          <ProposalSpaceX />
+          <Proposal />
 
-          <CardsBlockSpaceX data={[...cardsJSON]} />
+          <CardsBlock data={[...cardsJSON]} />
         </Wrap>
         <ModalForm />
       </Main>

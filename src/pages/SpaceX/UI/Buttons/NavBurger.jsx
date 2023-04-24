@@ -45,11 +45,11 @@ const Button = styled.button`
   }
 `;
 
-export const NavBurger = () => {
+export const NavBurger = ({className}) => {
   const {showNav, setShowNav} = useContext(HeaderContext);
 
   return (
-    <Button onClick={() => setShowNav(!showNav)}>
+    <Button className={className} onClick={() => setShowNav(!showNav)}>
       {!showNav ? (
         <FontAwesomeIcon icon={faBars} />
       ) : (

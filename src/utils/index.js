@@ -1,4 +1,4 @@
 export * from './format';
-export * from './createWrapperAndAppendToBody';
+export * from './portal';
 export * from './pages';
 export * from './setters';

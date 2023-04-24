@@ -1,6 +1,25 @@
-export const SVGFlowerFrame = ({className}) => {
+import styled from 'styled-components';
+
+const SVG = styled.svg`
+  @keyframes flower-frame {
+    0% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(-3deg);
+    }
+  }
+
+  width: 170px;
+  height: auto;
+
+  transform-origin: top;
+  animation: flower-frame 3s ease-in-out alternate infinite;
+`;
+
+export const FlowerFrame = ({className}) => {
   return (
-    <svg
+    <SVG
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 434.44 434.44"
       xmlSpace="preserve"
@@ -35,6 +54,6 @@ export const SVGFlowerFrame = ({className}) => {
         fill="#333"
         d="M253.57 215.25c0-19.123-15.562-34.68-34.69-34.68s-34.69 15.557-34.69 34.68c0 19.128 15.562 34.69 34.69 34.69s34.69-15.562 34.69-34.69zm-57.38 0c0-12.506 10.179-22.68 22.69-22.68 12.511 0 22.69 10.174 22.69 22.68 0 12.512-10.179 22.69-22.69 22.69-12.511 0-22.69-10.178-22.69-22.69z"
       />
-    </svg>
+    </SVG>
   );
 };

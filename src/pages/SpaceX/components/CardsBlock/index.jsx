@@ -1,25 +1,35 @@
-import HTMLReactParser from 'html-react-parser';
-import css from './style.module.scss';
-import {formatClassName} from 'utils/format';
+import styled from 'styled-components';
+import {Card} from './Card';
 
-const CardsBlockSpaceX = ({className, data}) => {
+const StyledSection = styled.section`
+  position: relative;
+  max-width: fit-content;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  justify-self: end;
+
+  @media (max-width: 1199px) {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: calc(0.4% + 11vh);
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 50px;
+  }
+`;
+
+const CardsBlock = ({className, data}) => {
   return (
-    <section className={formatClassName(className, css['cards-block'])}>
+    <StyledSection className={className}>
       {data.map((card) => (
-        <div className={css['card']} key={card.id}>
-          <p className={css['first-line']}>
-            {HTMLReactParser(card['first-str'])}
-          </p>
-          <p className={css['second-line']}>
-            {HTMLReactParser(card['second-str'])}
-          </p>
-          <p className={css['third-line']}>
-            {HTMLReactParser(card['third-str'])}
-          </p>
-        </div>
+        <Card key={card.id} data={card} />
       ))}
-    </section>
+    </StyledSection>
   );
 };
 
-export default CardsBlockSpaceX;
+export default CardsBlock;

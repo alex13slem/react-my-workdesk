@@ -35,7 +35,7 @@ const TextareaGroup = styled(FieldGroup)`
   }
 `;
 
-const ModalForm = () => {
+const ModalForm = ({className}) => {
   const {
     modalOpen: isOpen,
     modalOpenHandler: setOpen,
@@ -59,6 +59,7 @@ const ModalForm = () => {
 
   return (
     <ModalSpaceX
+      className={className}
       title="Оставь свои контакты"
       btns={
         <BtnSpaceX red onClick={handleSubmit(submitAction)}>
@@ -66,7 +67,7 @@ const ModalForm = () => {
         </BtnSpaceX>
       }
       isOpen={isOpen}
-      setOpen={setOpen}
+      handlerOpen={setOpen}
     >
       <Form onSubmit={handleSubmit(submitAction)}>
         <InputGroup

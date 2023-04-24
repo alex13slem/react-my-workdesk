@@ -32,10 +32,10 @@ const Nav = styled.nav`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({className}) => {
   const {showNav} = useContext(HeaderContext);
   return (
-    <Nav showNav={showNav}>
+    <Nav className={className} showNav={showNav}>
       {links.map(({id, link, text}) => (
         <NavLink key={id} navigate to={link}>
           {text}
