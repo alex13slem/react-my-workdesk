@@ -5,7 +5,6 @@ import Greeting from './components/Greeting';
 import PreviewScreen from './components/PreviewScreen';
 import styled from 'styled-components';
 import {Boards, FlowerFrame} from './UI/background';
-import {SwiperLink} from './UI/buttons';
 
 const Main = styled.main`
   position: relative;
