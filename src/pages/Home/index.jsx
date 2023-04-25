@@ -71,7 +71,7 @@ const Main = styled.main`
 `;
 
 const Home = ({className}) => {
-  useDocumentTitle('Welcome!');
+  useDocumentTitle('alex13slem | Welcome!');
   return (
     <Main className={className}>
       <Greeting className="sect-greeting">ПРОШУ ЛЮБИТЬ И ЖАЛОВАТЬ!</Greeting>
