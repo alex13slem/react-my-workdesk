@@ -4,8 +4,7 @@ import Contacts from './components/Contacts';
 import Greeting from './components/Greeting';
 import PreviewScreen from './components/PreviewScreen';
 import styled from 'styled-components';
-// import {Boards} from './UI/background/Boards';
-// import {FlowerFrame} from './UI/background/FlowerFrame';
+import {Boards, FlowerFrame} from './UI/bg';
 
 const Main = styled.main`
   position: relative;
@@ -79,9 +78,9 @@ const Home = ({className}) => {
       <Contacts className="sect-contacts" />
       <PreviewScreen className="sect-screen" />
 
-      {/* <Boards className="bg" /> */}
+      <Boards className="bg" />
 
-      {/* <FlowerFrame className="flower-frame" /> */}
+      <FlowerFrame className="flower-frame" />
     </Main>
   );
 };
