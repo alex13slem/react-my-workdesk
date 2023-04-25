@@ -9,7 +9,7 @@ const RootRouter = () => {
       <Route index element={<Home />} />
       <Route path={'/gocorona/*'} element={<GoCorona />} />
       <Route path={'/spaceX/*'} element={<SpaceX />} />
-      <Route path={'*'} element={<NotFound />} />
+      <Route path={'/*'} element={<NotFound />} />
     </Routes>
   );
 };
