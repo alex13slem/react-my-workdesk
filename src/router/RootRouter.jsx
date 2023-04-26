@@ -7,8 +7,8 @@ const RootRouter = () => {
   return (
     <Routes path="/">
       <Route index element={<Home />} />
-      <Route path={'/gocorona/*'} element={<GoCorona />} />
-      <Route path={'/spaceX/*'} element={<SpaceX />} />
+      <Route path={'gocorona/*'} element={<GoCorona />} />
+      <Route path={'spaceX/*'} element={<SpaceX />} />
       <Route path={'*'} element={<NotFound />} />
     </Routes>
   );
