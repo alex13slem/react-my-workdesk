@@ -1,10 +1,10 @@
 import {useLayoutEffect, useState} from 'react';
 
 export const useDocumentTitle = (title) => {
-  const [document_title, setDoucmentTitle] = useState(title);
+  const [documentTitle, setDocumentTitle] = useState(title);
   useLayoutEffect(() => {
-    document.title = document_title;
-  }, [document_title]);
+    document.title = documentTitle;
+  }, [documentTitle]);
 
-  return [document_title, setDoucmentTitle];
+  return [documentTitle, setDocumentTitle];
 };

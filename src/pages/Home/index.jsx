@@ -5,6 +5,7 @@ import Greeting from './components/Greeting';
 import PreviewScreen from './components/PreviewScreen';
 import styled from 'styled-components';
 import {Boards, FlowerFrame} from './UI/bg';
+import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
 
 const Main = styled.main`
   position: relative;
@@ -71,6 +72,7 @@ const Main = styled.main`
 `;
 
 const Home = ({className}) => {
+  useDocumentFavicon({ico: 'favicon/home.png', svg: 'favicon/home.svg'});
   useDocumentTitle('alex13slem | Welcome!');
   return (
     <Main className={className}>

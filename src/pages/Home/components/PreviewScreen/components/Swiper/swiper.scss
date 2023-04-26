@@ -1,12 +1,14 @@
 .swiper {
-	&-slide {
-		img {
-			height: 0;
-		}
-	}
-	&-slide-active {
-		img {
-			height: auto;
-		}
-	}
+  &-slide {
+    img {
+      height: 0;
+    }
+  }
+  &-slide-active {
+    img {
+      height: auto;
+    }
+  }
+}
+link[rel~='icon'][type*='svg'] {
 }

@@ -1,6 +1,7 @@
 import {useDocumentTitle} from 'hooks';
 import {Button} from './UI/Button';
 import styled from 'styled-components';
+import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
 
 const Root = styled.div`
   height: 100vh;
@@ -23,6 +24,10 @@ const Root = styled.div`
 
 const NotFound = ({className}) => {
   useDocumentTitle('Not Found 404 :(');
+  useDocumentFavicon({
+    ico: 'favicon/404.png',
+    svg: 'favicon/404.svg',
+  });
   return (
     <Root className={className}>
       <h1 className="message">Такой страницы нет</h1>

@@ -10,6 +10,7 @@ import {LayoutWrap} from '@SpaceX/components/Layout';
 import ModalForm from '@SpaceX/components/ModalForm';
 import {ModalContext} from '@SpaceX/store';
 import {useState} from 'react';
+import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
 
 const Main = styled.main`
   margin-top: 12vh;
@@ -24,7 +25,10 @@ const Wrap = styled(LayoutWrap)`
 `;
 
 const Home = ({className}) => {
-  useDocumentTitle('SpaceX');
+  useDocumentTitle('alex13slem | SpaceX');
+  useDocumentFavicon({
+    ico: 'favicon/space-x.ico',
+  });
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
 

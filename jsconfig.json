@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src/",
     "paths": {
-      "comComponents/*": ["./src/components/*"],
-      "utils/*": ["./src/utils/*"],
-      "@GoCorona/*": ["./src/pages/GoCorona/*"],
-      "@Home/*": ["./src/pages/Home/*"],
-      "@NotFound/*": ["./src/pages/NotFound/*"],
-      "@SpaceX/*": ["./src/pages/SpaceX/*"]
+      "comComponents/*": ["./components/*"],
+      "utils/*": ["./utils/*"],
+      "@GoCorona/*": ["./pages/GoCorona/*"],
+      "@Home/*": ["./pages/Home/*"],
+      "@NotFound/*": ["./pages/NotFound/*"],
+      "@SpaceX/*": ["./pages/SpaceX/*"]
     }
   }
 }
