@@ -6,6 +6,9 @@ const Body = styled.div`
   position: relative;
   height: 100vh;
 
+  display: flex;
+  flex-direction: column;
+
   font-family: 'Museo Sans Cyrl', sans-serif;
   font-size: 16px;
   font-weight: 400;

@@ -37,7 +37,7 @@ const Navbar = ({className}) => {
   return (
     <Nav className={className} showNav={showNav}>
       {links.map(({id, link, text}) => (
-        <NavLink key={id} navigate to={link}>
+        <NavLink key={id} navigate to={link} end>
           {text}
         </NavLink>
       ))}

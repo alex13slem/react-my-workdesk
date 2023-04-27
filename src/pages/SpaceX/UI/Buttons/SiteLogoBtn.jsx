@@ -14,6 +14,11 @@ const LogoBtn = styled(ComBtn)`
     5;
   transition: transform 0.3s ease;
 
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
   &::after,
   &::before {
     position: absolute;
