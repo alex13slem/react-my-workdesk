@@ -21,7 +21,10 @@ const Wrap = styled(LayoutWrap)`
   align-items: center;
 `;
 
-export const HeaderContext = createContext(null);
+export const HeaderContext = createContext({
+  showNav: false,
+  setShowNav: () => {},
+});
 
 const HeaderSpaceX = ({className}) => {
   const rootRef = useRef();

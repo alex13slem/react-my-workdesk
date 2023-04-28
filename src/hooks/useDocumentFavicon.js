@@ -1,9 +1,19 @@
 import {useLayoutEffect, useState} from 'react';
 
 export const useDocumentFavicon = (favicon) => {
+  const SVG = {
+    REL: 'icon',
+    TYPE: 'image/svg+xml',
+  };
+  const ICO = {
+    REL: 'shortcut icon',
+    TYPE: 'image/x-icon',
+  };
+
   const [documentFavicon, setDocumentFavicon] = useState(favicon);
-  let linkIco = document.querySelector("link[type='image/x-icon']");
-  let linkSvg = document.querySelector("link[type='image/svg+xml']");
+
+  let linkIco = document.querySelector(`link[type='${ICO.TYPE}']`);
+  let linkSvg = document.querySelector(`link[type='${SVG.TYPE}']`);
 
   const hrefWODomain = (link) =>
     link.href.replace(`http://${window.location.host}/`, '');
@@ -12,13 +22,12 @@ export const useDocumentFavicon = (favicon) => {
     if (documentFavicon.ico) {
       if (!linkIco) {
         linkIco = document.createElement('link');
-        linkIco.rel = 'shortcut icon';
-        linkIco.type = 'image/x-icon';
+        linkIco.rel = ICO.REL;
+        linkIco.type = ICO.TYPE;
         document.head.appendChild(linkIco);
       }
       if (hrefWODomain(linkIco) != documentFavicon.ico) {
         linkIco.href = documentFavicon.ico;
-        console.log('added Ico-link');
       }
     }
   };
@@ -27,13 +36,12 @@ export const useDocumentFavicon = (favicon) => {
     if (documentFavicon.svg) {
       if (!linkSvg) {
         linkSvg = document.createElement('link');
-        linkSvg.rel = 'icon';
-        linkSvg.type = 'image/svg+xml';
+        linkSvg.rel = SVG.REL;
+        linkSvg.type = SVG.TYPE;
         document.head.appendChild(linkSvg);
       }
       if (hrefWODomain(linkSvg) != documentFavicon.svg) {
         linkSvg.href = documentFavicon.svg;
-        console.log('added svg-link');
       }
     }
   };

@@ -33,11 +33,17 @@ const Nav = styled.nav`
 `;
 
 const Navbar = ({className}) => {
-  const {showNav} = useContext(HeaderContext);
+  const {showNav, setShowNav} = useContext(HeaderContext);
   return (
     <Nav className={className} showNav={showNav}>
       {links.map(({id, link, text}) => (
-        <NavLink key={id} navigate to={link} end>
+        <NavLink
+          key={id}
+          navigate
+          to={link}
+          onClick={() => setShowNav(false)}
+          end
+        >
           {text}
         </NavLink>
       ))}

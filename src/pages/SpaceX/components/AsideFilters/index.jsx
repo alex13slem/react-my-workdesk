@@ -1,7 +1,8 @@
+import ComDoubleRange from 'comComponents/ComDoubleRange';
 import styled from 'styled-components';
 
 const Root = styled.aside`
-  background-color: #000;
+  background-color: #00000036;
 
   position: sticky;
   inset: 0;
@@ -10,7 +11,11 @@ const Root = styled.aside`
 `;
 
 const AsideFilters = () => {
-  return <Root></Root>;
+  return (
+    <Root>
+      <ComDoubleRange />
+    </Root>
+  );
 };
 
 export default AsideFilters;
