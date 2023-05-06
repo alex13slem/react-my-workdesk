@@ -1,22 +1,26 @@
-import {useState} from 'react';
 import styled from 'styled-components';
 
 const CustomRange = styled.div`
-  --base-size: 15px;
+  --base-size: ${({baseSize}) => baseSize + 'px'};
+  --thumb-color: ${({thumbColor}) => thumbColor};
 
   position: relative;
-  height: 4px;
+  height: var(--base-size);
 
-  /* border: 1px solid #fff; */
-
-  .input {
+  .track {
     position: absolute;
-    top: calc(var(--base-size) / -2);
-    bottom: 0;
-    height: 100%;
+    inset: 0;
+    top: calc(var(--base-size) / 3);
     width: 100%;
-
-    padding-block: 10px;
+    height: calc(var(--base-size) / 3);
+  }
+  .min,
+  .max {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    height: var(--base-size);
+    width: 100%;
 
     pointer-events: none;
     appearance: none;
@@ -24,15 +28,19 @@ const CustomRange = styled.div`
     background-color: transparent;
 
     &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      pointer-events: all;
+      position: relative;
       height: var(--base-size);
       width: var(--base-size);
+      -webkit-appearance: none;
+      pointer-events: all;
       background-color: rgb(224, 112, 37);
       border-radius: 50%;
       cursor: pointer;
+
+      ${({thumbCSS}) => thumbCSS.webkit}
     }
     &::-moz-range-thumb {
+      position: relative;
       -moz-appearance: none;
       pointer-events: all;
       height: var(--base-size);
@@ -40,49 +48,71 @@ const CustomRange = styled.div`
       background-color: rgb(224, 112, 37);
       border-radius: 50%;
       cursor: pointer;
+
+      ${({thumbCSS}) => thumbCSS.moz}
     }
     &::-ms-thumb {
+      position: relative;
       appearance: none;
       pointer-events: all;
       height: var(--base-size);
       width: var(--base-size);
-      background-color: rgb(224, 112, 37);
+      background-color: #e07025;
       border-radius: 50%;
       cursor: pointer;
+
+      ${({thumbCSS}) => thumbCSS.ms}
     }
   }
 `;
 
-const ComDoubleRange = () => {
-  const [value, setValue] = useState({min: 0, max: 100});
-
+const ComDoubleRange = ({
+  className,
+  baseSize = 16,
+  colors = {
+    thumb: '#e07025',
+    track: {in: '#c00000', out: '#580000'},
+  },
+  thumbCSS = {webkit: '', moz: '', ms: ''},
+  setValue = () => {},
+  value = {min: 0, max: 100},
+}) => {
   const styledRangeBg = {
     background: `
     linear-gradient(
       to right,
-      #580000 0% ${value.min}%, 
-      #c00000 ${value.min}% ${value.max}%, 
-      #580000 ${value.max}% 100%
+      ${colors.track.out} 0% ${value.min}%, 
+      ${colors.track.in} ${value.min}% ${value.max}%, 
+      ${colors.track.out} ${value.max}% 100%
     )`,
   };
 
+  // const styledHandle = {
+  //   marginLeft: `${value.min}%`,
+  //   width: `${value.max - value.min}%`,
+  // };
+
   return (
-    <CustomRange style={styledRangeBg}>
+    <CustomRange
+      baseSize={baseSize}
+      thumbColor={colors.thumb}
+      thumbCSS={thumbCSS}
+      className={className}
+    >
+      <div className="track" style={styledRangeBg}></div>
       <input
-        className="input input_min"
         value={value.min}
-        onChange={(e) => {
-          setValue({...value, min: e.target.value});
-        }}
+        onChange={(e) => setValue(e, baseSize)}
         type="range"
         name="min"
+        className="min"
       />
       <input
-        className="input input_max"
         value={value.max}
-        onChange={(e) => setValue({...value, max: e.target.value})}
+        onChange={(e) => setValue(e, baseSize)}
         type="range"
         name="max"
+        className="max"
       />
     </CustomRange>
   );

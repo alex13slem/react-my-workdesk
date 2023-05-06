@@ -11,9 +11,22 @@ import {
 } from 'react-router-dom';
 
 const Root = styled(ComBreadcrumbs)`
-  margin-block: 34px;
+  position: relative;
+  padding-block: 12px;
+  margin-block: 32px;
   display: flex;
   gap: 10px;
+
+  background-size: 1000% 100%;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    inset: 0;
+
+    background-color: #00000036;
+  }
 `;
 
 const Breadcrumbs = ({className}) => {
