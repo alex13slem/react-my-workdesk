@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   position: relative;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -14,16 +14,6 @@ const Body = styled.div`
   font-weight: 400;
   color: #fff;
 
-  &::after {
-    position: absolute;
-    z-index: -1;
-    content: '';
-    background: url('img-space-x/planet.webp') 50% 50% / auto 61% no-repeat;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-  }
   &::before {
     top: 0;
     left: 0;
@@ -34,6 +24,17 @@ const Body = styled.div`
       #000;
     width: 100%;
     height: 100%;
+  }
+
+  &::after {
+    position: fixed;
+    z-index: -1;
+    content: '';
+    background: url('img-space-x/planet.webp') 50% 50% / auto 61% no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
   }
 
   @media (max-width: 1199px) {

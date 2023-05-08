@@ -19,8 +19,8 @@ const Products = ({className}) => {
   useDocumentTitle('alex13slem | SpaceX | Каталог');
   return (
     <Main>
+      <Breadcrumbs />
       <Wrap>
-        <Breadcrumbs />
         <Catalog />
       </Wrap>
     </Main>
