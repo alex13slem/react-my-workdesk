@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Body = styled.div`
   position: relative;
   height: 100%;
+  overflow-x: clip;
 
   display: flex;
   flex-direction: column;
@@ -22,8 +23,8 @@ const Body = styled.div`
     z-index: -100;
     background: url('img-space-x/body_bcgrnd.webp') 50% 0 / auto 100% no-repeat,
       #000;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 
   &::after {
@@ -31,8 +32,8 @@ const Body = styled.div`
     z-index: -1;
     content: '';
     background: url('img-space-x/planet.webp') 50% 50% / auto 61% no-repeat;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0px;
     left: 0px;
   }

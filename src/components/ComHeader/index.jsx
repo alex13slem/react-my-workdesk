@@ -2,13 +2,12 @@ import {forwardRef, useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  top: ${({topValue}) => topValue}px;
   @media (orientation: portrait) {
     top: 0;
   }
 `;
 
-const ComHeader = forwardRef(({children, className}, ref) => {
+const ComHeader = forwardRef(({children, className, style}, ref) => {
   const headerHeight = ref.current?.scrollHeight;
   const [currentScrollPos, setCurrentScrollPos] = useState(null);
   const [prevScrollPos, setPrevScrollPos] = useState(null);
@@ -39,7 +38,11 @@ const ComHeader = forwardRef(({children, className}, ref) => {
   });
 
   return (
-    <StyledHeader topValue={headerTopValue} ref={ref} className={className}>
+    <StyledHeader
+      ref={ref}
+      className={className}
+      style={{...style, top: headerTopValue + 'px'}}
+    >
       {children}
     </StyledHeader>
   );

@@ -10,7 +10,8 @@ import {NavBurger, SiteLogoBtn} from '@SpaceX/UI/Buttons';
 const Header = styled(ComHeader)`
   z-index: 100;
   position: sticky;
-  width: 100%;
+  width: 100vw;
+
   background-color: rgba(21, 10, 1, 0.21);
   border-block: 1px solid rgba(152, 147, 147, 0.21);
 `;

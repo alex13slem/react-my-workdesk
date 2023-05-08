@@ -1,11 +1,9 @@
+import router from '@Home/router';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, HashRouter} from 'react-router-dom';
-import {App} from './root';
+import {RouterProvider} from 'react-router-dom';
+import './style.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-);
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<RouterProvider router={router} />);

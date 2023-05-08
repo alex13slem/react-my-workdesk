@@ -13,8 +13,6 @@ const StyledHeader = styled(ComHeader)`
   position: sticky;
   top: 0;
   width: 100%;
-
-  background: rgb(255 255 255 / ${({opacity}) => opacity}%);
 `;
 
 const Header = ({className}) => {
@@ -45,7 +43,11 @@ const Header = ({className}) => {
   });
 
   return (
-    <StyledHeader opacity={headerOpacity} className={className} ref={headerRef}>
+    <StyledHeader
+      className={className}
+      ref={headerRef}
+      style={{background: `rgb(255 255 255 / ${headerOpacity}%)`}}
+    >
       <div className={css['container']}>
         <ComBtn to={'/'} className={css['logo']}>
           <SVGSiteLogo />

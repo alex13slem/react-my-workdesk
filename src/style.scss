@@ -1,4 +1,4 @@
-@import '../fonts/fonts.scss';
+@import 'fonts/fonts.scss';
 
 * {
   box-sizing: border-box;
@@ -53,6 +53,8 @@ body {
 }
 #root {
   flex: 1 0 auto;
+  // width: 100vw;
+  // overflow-x: clip;
 }
 button {
   outline: none;
