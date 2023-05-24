@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 const Root = styled.aside`
   position: sticky;
-  inset: 0;
-  right: auto;
+  top: 0;
   flex: 0 0 314px;
-  min-width: 0;
 
   padding: 20px;
 

@@ -19,8 +19,8 @@ const Btn = styled(ComBtn)`
 
   transition: background-color 0.3s ease;
 
-  ${({blue}) =>
-    (blue &&
+  ${({$blue}) =>
+    ($blue &&
       `
       background-color: #4285f4;
       &:hover {
@@ -37,7 +37,7 @@ const Btn = styled(ComBtn)`
 
 const ButtonGoCorona = ({children, className, blue, ...props}) => {
   return (
-    <Btn className={className} blue={blue} {...props}>
+    <Btn className={className} $blue={blue} {...props}>
       {children}
     </Btn>
   );
