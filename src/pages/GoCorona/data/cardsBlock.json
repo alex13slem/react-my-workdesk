@@ -1,23 +1,17 @@
 [
   {
     "id": 1,
-    "content": {
-      "title": "Symptom Checker",
-      "body": "Check if you are infected by \nCOVID-19 with our Symptom Checker"
-    }
+    "title": "Symptom Checker",
+    "body": "Check if you are infected by \nCOVID-19 with our Symptom Checker"
   },
   {
     "id": 2,
-    "content": {
-      "title": "24x7 Medical support",
-      "body": "Consult with 10,000+ health \nworkers about your concerns."
-    }
+    "title": "24x7 Medical support",
+    "body": "Consult with 10,000+ health \nworkers about your concerns."
   },
   {
     "id": 3,
-    "content": {
-      "title": "Conditions",
-      "body": "Bringing premium healthcare features to your fingertips."
-    }
+    "title": "Conditions",
+    "body": "Bringing premium healthcare features to your fingertips."
   }
 ]

@@ -1,19 +1,24 @@
 import {Outlet} from 'react-router-dom';
 import Footer from '../Footer';
 import Header from '../Header';
-import css from './style.module.scss';
+import styled from 'styled-components';
+
+const Body = styled.div`
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #616161;
+  background-color: #fff;
+`;
 
 const Layout = () => {
   return (
-    <div className={css['body']}>
-      <div className={css['wrapper']}>
-        <Header />
+    <Body>
+      <Header />
 
-        <Outlet />
+      <Outlet />
 
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </Body>
   );
 };
 

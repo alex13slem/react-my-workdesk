@@ -1,7 +1,7 @@
 import {formatClassName} from 'utils/format';
 import css from './style.module.scss';
 
-const TextTitle = ({priority, children, marker = 'red', className = ''}) => {
+const TextTitle = ({className, children, priority = 2, marker = 'red'}) => {
   const CustomTag = `h${priority}`;
   return (
     <CustomTag

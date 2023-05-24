@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const ComHeader = forwardRef(({children, className, style}, ref) => {
+const ComHeader = forwardRef(({children, className, style, isFixed}, ref) => {
   const headerHeight = ref.current?.scrollHeight;
   const [currentScrollPos, setCurrentScrollPos] = useState(null);
   const [prevScrollPos, setPrevScrollPos] = useState(null);
@@ -19,14 +19,17 @@ const ComHeader = forwardRef(({children, className, style}, ref) => {
 
     const scrollStep = headerTopValue - (currentScrollPos - prevScrollPos);
 
+    if (isFixed || scrollStep > 0) {
+      setHeaderTopValue(0);
+      return;
+    }
     if (scrollStep >= -headerHeight && scrollStep <= 0) {
       setHeaderTopValue(scrollStep);
+      return;
     }
     if (scrollStep < -headerHeight) {
       setHeaderTopValue(-headerHeight);
-    }
-    if (scrollStep > 0) {
-      setHeaderTopValue(0);
+      return;
     }
   };
 

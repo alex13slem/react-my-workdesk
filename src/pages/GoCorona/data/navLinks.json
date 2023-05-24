@@ -1,0 +1,6 @@
+[
+  {"id": 1, "to": "/gocorona", "text": "HOME"},
+  {"id": 2, "to": "/", "text": "FEATURES"},
+  {"id": 3, "to": "/", "text": "SUPPORT"},
+  {"id": 4, "to": "/", "text": "CONTACT US"}
+]

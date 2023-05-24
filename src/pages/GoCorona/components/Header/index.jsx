@@ -1,18 +1,35 @@
 import {useEffect, useRef, useState} from 'react';
-import ComBtn from 'comComponents/ComBtn';
-import css from './style.module.scss';
 import styled from 'styled-components';
 import SiteNavigate from '../SiteNavigate';
 import ComHeader from 'comComponents/ComHeader';
 import ButtonGoCorona from '@GoCorona/UI/ButtonGoCorona';
-import {SVGSiteLogo} from '@GoCorona/UI/SVGimages';
+import Logo from './Logo';
+import Container from '@GoCorona/components/Container';
+import Burger from '../SiteNavigate/Burger';
 
 const StyledHeader = styled(ComHeader)`
   z-index: 50;
 
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
+`;
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 114px;
+  @media (max-width: 991.98px) {
+    min-height: 80px;
+  }
+
+  .btn-download {
+    margin-left: 122px;
+    @media (max-width: 991.98px) {
+      margin: 0;
+    }
+  }
 `;
 
 const Header = ({className}) => {
@@ -47,24 +64,16 @@ const Header = ({className}) => {
       className={className}
       ref={headerRef}
       style={{background: `rgb(255 255 255 / ${headerOpacity}%)`}}
+      isFixed={visibleMenu}
     >
-      <div className={css['container']}>
-        <ComBtn to={'/'} className={css['logo']}>
-          <SVGSiteLogo />
-        </ComBtn>
-        <div className={css['menu']}>
-          <SiteNavigate visible={visibleMenu} />
-        </div>
-        <div className={css['button']}>
-          <ButtonGoCorona blue>DOWNLOAD</ButtonGoCorona>
-          <ComBtn
-            onClick={() => setVisibleMenu(!visibleMenu)}
-            className={css['icon-menu']}
-          >
-            <span></span>
-          </ComBtn>
-        </div>
-      </div>
+      <StyledContainer>
+        <Logo />
+        <SiteNavigate visible={visibleMenu} />
+        <ButtonGoCorona blue className="btn-download">
+          DOWNLOAD
+        </ButtonGoCorona>
+        <Burger visible={visibleMenu} handle={setVisibleMenu} />
+      </StyledContainer>
     </StyledHeader>
   );
 };

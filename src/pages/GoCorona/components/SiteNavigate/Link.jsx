@@ -1,4 +1,7 @@
-.link {
+import {NavLink} from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled(NavLink)`
   padding: 10px;
   font-family: 'Raleway';
   font-weight: 700;
@@ -32,39 +35,14 @@
       color: #d6535b;
     }
   }
-}
+`;
 
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  margin-right: 30px;
+const Link = ({className, children, to}) => {
+  return (
+    <StyledLink to={to} className={className}>
+      {children}
+    </StyledLink>
+  );
+};
 
-  &.visible {
-    left: 0;
-  }
-
-  @media (max-width: 991.98px) {
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  @media (max-width: 767.92px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 90px 15px 30px 15px;
-  }
-  @media (max-width: 767.92px) {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: #fafbfd;
-    transition: left 0.3s ease;
-    &:target {
-      left: 0;
-    }
-  }
-}
+export default Link;

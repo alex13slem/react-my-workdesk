@@ -1,20 +1,18 @@
-import ComBtn from 'comComponents/ComBtn';
-import css from './style.module.scss';
-import {SVGAppleLogo, SVGGoogleLogo} from '@GoCorona/UI/SVGimages/FirmLogos';
+import styled from 'styled-components';
+import Links from './Links';
+import Container from '@GoCorona/components/Container';
+
+const StyledContainer = styled(Container)`
+  min-height: 100px;
+  padding-bottom: 50px;
+`;
 
 const Footer = () => {
   return (
     <footer>
-      <div className={css['container']}>
-        <div className={css['icons']}>
-          <ComBtn>
-            <SVGGoogleLogo />
-          </ComBtn>
-          <ComBtn>
-            <SVGAppleLogo />
-          </ComBtn>
-        </div>
-      </div>
+      <StyledContainer>
+        <Links />
+      </StyledContainer>
     </footer>
   );
 };

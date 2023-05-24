@@ -1,21 +1,20 @@
-import {formatClassName} from 'utils/format';
-import css from './style.module.scss';
+import styled from 'styled-components';
+import Board from './Board';
 
-const AchievementBoard = ({items, className}) => {
+const Root = styled.div`
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 36px;
+  padding: 44px 60px;
+`;
+
+const AchievementBoard = ({items, className, decor}) => {
   return (
-    <div className={formatClassName(css['wrap'], className)}>
-      <div className={formatClassName(css['decor'], css['decor_1'])}></div>
-      <div className={formatClassName(css['decor'], css['decor_2'])}></div>
-      <div className={formatClassName(css['decor'], css['decor_3'])}></div>
-      <div className={css['board']}>
-        {items.map((item) => (
-          <div className={css['item']} key={item.id}>
-            <p className={css['value']}>{item.firStr}</p>
-            <p className={css['title']}>{item.secStr}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Root className={className}>
+      <Board items={items} />
+      {decor}
+    </Root>
   );
 };
 
