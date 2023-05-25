@@ -15,9 +15,9 @@ const Root = styled.div`
     flex: 1 1 auto;
     overflow: auto;
 
-    padding-right: 30px;
+    padding-right: 50px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 
     scrollbar-color: #c00000 rgba(21, 10, 1, 0.21);
@@ -38,6 +38,10 @@ const Root = styled.div`
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
     }
+  }
+
+  .card {
+    height: 30vmin;
   }
 `;
 
@@ -62,7 +66,7 @@ const Catalog = ({className}) => {
       <AsideFilters />
       <div className="catalog">
         {postsData.map((post) => (
-          <ProductCard key={post?.id} data={post} />
+          <ProductCard className={'card'} key={post?.id} data={post} />
         ))}
       </div>
     </Root>
