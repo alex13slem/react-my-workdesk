@@ -1,14 +1,17 @@
 import {Outlet} from 'react-router-dom';
 import HeaderSpaceX from '../Header';
 import styled from 'styled-components';
+import {useRootStyle} from 'hooks/useRootStyle';
 
 const Body = styled.div`
   position: relative;
-  height: 100%;
-  overflow-x: clip;
 
   display: flex;
   flex-direction: column;
+
+  main {
+    flex: 1 1 100%;
+  }
 
   font-family: 'Museo Sans Cyrl', sans-serif;
   font-size: 16px;
@@ -46,6 +49,10 @@ const Body = styled.div`
 `;
 
 const Layout = ({className}) => {
+  useRootStyle(`
+  --sb-c-bg: #010d19;
+  --sb-c-tb: #ce2934;
+  `);
   return (
     <Body className={className}>
       <HeaderSpaceX />

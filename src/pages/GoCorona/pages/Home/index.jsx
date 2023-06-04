@@ -6,11 +6,9 @@ import SectionExperts from '@GoCorona/sections/Experts';
 import SectionHealthCare from '@GoCorona/sections/HealthCare';
 import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
 import styled from 'styled-components';
+import {useRootStyle} from 'hooks/useRootStyle';
 
-const Main = styled.main`
-  flex: 1 1 auto;
-  overflow-x: hidden;
-`;
+const Main = styled.main``;
 
 const Home = ({className}) => {
   useDocumentTitle('alex13slem | GoCorona');
@@ -18,6 +16,10 @@ const Home = ({className}) => {
     ico: 'favicon/go-corona.png',
     svg: 'favicon/go-corona.svg',
   });
+  useRootStyle(`
+  --sb-c-bg: #fff;
+  --sb-c-tb: #ec5863;
+  `);
   return (
     <Main className={className}>
       <SectionGetStarted />

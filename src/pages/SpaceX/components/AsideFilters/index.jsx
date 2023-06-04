@@ -5,6 +5,7 @@ const Root = styled.aside`
   position: sticky;
   top: 0;
   flex: 0 0 314px;
+  height: 100vh;
 
   padding: 20px;
 

@@ -77,13 +77,13 @@ const Card = styled.article`
 `;
 
 const ProductCard = ({className, data}) => {
-  console.log(data);
+  // console.log(data);
   return (
     <Card className={className}>
       <div className="front-side">
         <h2 className="name">{data.title}</h2>
         <div className="images">
-          <img src={data.thumbnail} alt="" />
+          <img src={data.thumbnail} alt="thumbnail" />
         </div>
         <Rating className="rating" value={data.rating} readOnly />
       </div>

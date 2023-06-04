@@ -4,6 +4,13 @@ import Header from '../Header';
 import styled from 'styled-components';
 
 const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1 1 100%;
+  }
+
   font-family: 'Rubik', sans-serif;
   font-size: 12px;
   color: #616161;

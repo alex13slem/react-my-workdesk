@@ -8,6 +8,7 @@ import Container from '@GoCorona/components/Container';
 
 const Section = styled.section`
   background: #fafbfd;
+  overflow: hidden;
 `;
 
 const StyledContainer = styled(Container)`

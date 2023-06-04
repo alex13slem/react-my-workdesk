@@ -6,43 +6,10 @@ import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div`
-  display: flex;
-  max-height: 100%;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-
-  .catalog {
-    flex: 1 1 auto;
-    overflow: auto;
-
-    padding-right: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-
-    scrollbar-color: #c00000 rgba(21, 10, 1, 0.21);
-    /* scrollbar-width: thin; */
-
-    &::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: rgba(21, 10, 1, 0.21);
-      border: 1px solid rgba(152, 147, 147, 0.21);
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #c00000;
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-    }
-  }
-
-  .card {
-    height: 30vmin;
-  }
+  grid-auto-rows: 500px;
 `;
 
 const Catalog = ({className}) => {
@@ -62,13 +29,10 @@ const Catalog = ({className}) => {
     fetchPosts();
   }, [skipPosts, limitPosts]);
   return (
-    <Root>
-      <AsideFilters />
-      <div className="catalog">
-        {postsData.map((post) => (
-          <ProductCard className={'card'} key={post?.id} data={post} />
-        ))}
-      </div>
+    <Root className={className}>
+      {postsData.map((post) => (
+        <ProductCard className={'card'} key={post?.id} data={post} />
+      ))}
     </Root>
   );
 };

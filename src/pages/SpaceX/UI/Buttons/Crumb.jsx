@@ -16,6 +16,10 @@ const StyledCrumb = styled(ComBtn)`
   }
 `;
 
-export const Crumb = ({children, className}) => {
-  return <StyledCrumb>{children}</StyledCrumb>;
+export const Crumb = ({children, className, to}) => {
+  return (
+    <StyledCrumb className={className} to={to}>
+      {children}
+    </StyledCrumb>
+  );
 };

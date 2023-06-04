@@ -3,3 +3,4 @@ export * from './BtnSpaceX';
 export * from './SiteLogoBtn';
 export * from './NavBurger';
 export * from './NavLink';
+export * from './Crumb';

@@ -1,0 +1,18 @@
+@import './fonts.scss';
+@import './reset.scss';
+@import './scrollbar.scss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root > * {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  // scrollbar-gutter: stable;
+}
