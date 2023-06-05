@@ -1,7 +1,7 @@
 import {Outlet} from 'react-router-dom';
 import HeaderSpaceX from '../Header';
 import styled from 'styled-components';
-import {useRootStyle} from 'hooks/useRootStyle';
+import {useSelectorStyle} from 'hooks/useSelectorStyle';
 
 const Body = styled.div`
   position: relative;
@@ -49,10 +49,13 @@ const Body = styled.div`
 `;
 
 const Layout = ({className}) => {
-  useRootStyle(`
+  useSelectorStyle(
+    ':root',
+    `
   --sb-c-bg: #010d19;
   --sb-c-tb: #ce2934;
-  `);
+  `
+  );
   return (
     <Body className={className}>
       <HeaderSpaceX />

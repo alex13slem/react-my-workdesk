@@ -6,7 +6,7 @@ import SectionExperts from '@GoCorona/sections/Experts';
 import SectionHealthCare from '@GoCorona/sections/HealthCare';
 import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
 import styled from 'styled-components';
-import {useRootStyle} from 'hooks/useRootStyle';
+import {useSelectorStyle} from 'hooks/useSelectorStyle';
 
 const Main = styled.main``;
 
@@ -16,10 +16,13 @@ const Home = ({className}) => {
     ico: 'favicon/go-corona.png',
     svg: 'favicon/go-corona.svg',
   });
-  useRootStyle(`
+  useSelectorStyle(
+    ':root',
+    `
   --sb-c-bg: #fff;
   --sb-c-tb: #ec5863;
-  `);
+  `
+  );
   return (
     <Main className={className}>
       <SectionGetStarted />

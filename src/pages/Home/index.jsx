@@ -6,8 +6,6 @@ import PreviewScreen from './components/PreviewScreen';
 import styled from 'styled-components';
 import {Boards, FlowerFrame} from './UI/bg';
 import {useDocumentFavicon} from 'hooks/useDocumentFavicon';
-import {useEffect} from 'react';
-import {useRootStyle} from 'hooks/useRootStyle';
 
 const Main = styled.main`
   --font-family: 'NotoSansMono', sans-serif;
@@ -93,8 +91,6 @@ const Home = ({className}) => {
   useDocumentFavicon({ico: 'favicon/home.png', svg: 'favicon/home.svg'});
   useDocumentTitle('alex13slem | Welcome!');
 
-  useRootStyle(`
-  `);
   return (
     <Main className={className}>
       <Greeting className="sect-greeting">ПРОШУ ЛЮБИТЬ И ЖАЛОВАТЬ!</Greeting>
