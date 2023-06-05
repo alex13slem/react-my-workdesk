@@ -76,7 +76,7 @@ const Card = styled.article`
   }
 `;
 
-const ProductCard = ({className, data}) => {
+const ProductCard = ({className, data, clickOnBuy}) => {
   // console.log(data);
   return (
     <Card className={className}>
@@ -88,7 +88,9 @@ const ProductCard = ({className, data}) => {
         <Rating className="rating" value={data.rating} readOnly />
       </div>
       <div className="back-side">
-        <BtnSpaceX className="btn sale">Купить</BtnSpaceX>
+        <BtnSpaceX className="btn sale" onClick={clickOnBuy}>
+          Купить
+        </BtnSpaceX>
       </div>
     </Card>
   );
