@@ -14,6 +14,8 @@ const Header = styled(ComHeader)`
 
   background-color: rgba(21, 10, 1, 0.21);
   border-block: 1px solid rgba(152, 147, 147, 0.21);
+
+  backdrop-filter: blur(8px) hue-rotate(338deg);
 `;
 
 const Wrap = styled(LayoutWrap)`

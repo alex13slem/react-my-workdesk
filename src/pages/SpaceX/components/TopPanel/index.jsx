@@ -4,7 +4,9 @@ import ComBreadcrumbs from 'comComponents/ComBredcrumbs';
 import {useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 
-const Root = styled(UITopPanel)``;
+const Root = styled(UITopPanel)`
+  z-index: 1;
+`;
 
 const TopPanel = ({className, children}) => {
   const {pathname} = useLocation();

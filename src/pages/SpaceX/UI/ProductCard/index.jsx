@@ -4,28 +4,37 @@ import '@smastrom/react-rating/style.css';
 import {Rating} from '@smastrom/react-rating';
 
 const Card = styled.article`
+  --shadow: rgb(0 0 0 / 30%) 0px 0px 20px 10px;
+  --translateZ: translateZ(6px);
+
   position: relative;
 
-  &:hover .front-side {
-    transform: rotate3d(1, 1, 0, 180deg) scale(70%);
-  }
-  &:hover .back-side {
-    transform: rotate3d(0, 0, 1, 270deg) scale(70%);
+  transform-style: preserve-3d;
+
+  transition: 1s ease-in-out;
+  transition-property: transform;
+
+  &:hover {
+    transform: rotateY(0.5turn);
   }
 
   .front-side,
   .back-side {
     height: 100%;
 
-    transition: 1s 0.2s ease-in-out;
-    transition-property: transform;
-
     transform-style: preserve-3d;
     backface-visibility: hidden;
 
     border: 1px solid rgba(152, 147, 147, 0.21);
-
     background-color: rgba(0, 0, 0, 0.21);
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px) hue-rotate(340deg);
+    }
   }
   .front-side {
     display: flex;
@@ -37,32 +46,43 @@ const Card = styled.article`
     position: absolute;
     inset: 0;
 
-    transform: rotate3d(0, 1, 0, 180deg);
+    transform: rotateY(0.5turn);
 
     display: grid;
     place-items: center;
 
     .btn {
-      transform: rotate(90deg) scale(170%);
-      transform-origin: center;
+      font-size: 24px;
+      transform: var(--translateZ);
+      box-shadow: var(--shadow);
     }
   }
 
   .name {
+    z-index: 1;
     height: 48px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
     font-size: 20px;
     line-height: 1.2;
     overflow: hidden;
-    margin-bottom: 10px;
     text-align: right;
   }
 
   .images {
     flex: 1;
     overflow: hidden;
+    transform: var(--translateZ);
+    backface-visibility: hidden;
+
+    filter: opacity(60%) brightness(110%) contrast(120%) grayscale(0.5);
+    box-shadow: var(--shadow);
 
     img {
-      /* display: block; */
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -71,13 +91,13 @@ const Card = styled.article`
   }
 
   .rating {
+    z-index: 1;
     max-width: 70%;
     align-self: end;
   }
 `;
 
 const ProductCard = ({className, data, clickOnBuy}) => {
-  // console.log(data);
   return (
     <Card className={className}>
       <div className="front-side">
@@ -89,7 +109,7 @@ const ProductCard = ({className, data, clickOnBuy}) => {
       </div>
       <div className="back-side">
         <BtnSpaceX className="btn sale" onClick={clickOnBuy}>
-          Купить
+          Подробнее
         </BtnSpaceX>
       </div>
     </Card>

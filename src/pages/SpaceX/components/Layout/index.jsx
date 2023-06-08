@@ -1,7 +1,8 @@
-import {Outlet} from 'react-router-dom';
+import {Outlet, useLocation} from 'react-router-dom';
 import HeaderSpaceX from '../Header';
 import styled from 'styled-components';
 import {useSelectorStyle} from 'hooks/useSelectorStyle';
+import TopPanel from '../TopPanel';
 
 const Body = styled.div`
   position: relative;
@@ -56,6 +57,7 @@ const Layout = ({className}) => {
   --sb-c-tb: #ce2934;
   `
   );
+
   return (
     <Body className={className}>
       <HeaderSpaceX />

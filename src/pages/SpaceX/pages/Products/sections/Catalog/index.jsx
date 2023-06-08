@@ -7,9 +7,9 @@ import styled from 'styled-components';
 
 const Root = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  grid-auto-rows: 500px;
+  grid-auto-rows: 350px;
 `;
 
 const Catalog = ({className}) => {
