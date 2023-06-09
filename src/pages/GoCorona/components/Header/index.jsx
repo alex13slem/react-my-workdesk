@@ -6,8 +6,9 @@ import ButtonGoCorona from '@GoCorona/UI/ButtonGoCorona';
 import Logo from './Logo';
 import Container from '@GoCorona/components/Container';
 import Burger from '../SiteNavigate/Burger';
+import {useScrollElemHide} from 'hooks';
 
-const StyledHeader = styled(ComHeader)`
+const StyledHeader = styled.header`
   z-index: 50;
 
   position: fixed;
@@ -38,6 +39,8 @@ const Header = ({className}) => {
   const [currentScrollPos, setCurrentScrollPos] = useState(null);
   const [headerOpacity, setHeaderOpacity] = useState(0);
 
+  const {elemTopValue: headerTopValue} = useScrollElemHide(headerRef);
+
   const handleScroll = () => {
     setCurrentScrollPos(window.scrollY);
 
@@ -63,7 +66,10 @@ const Header = ({className}) => {
     <StyledHeader
       className={className}
       ref={headerRef}
-      style={{background: `rgb(255 255 255 / ${headerOpacity}%)`}}
+      style={{
+        background: `rgb(255 255 255 / ${headerOpacity}%)`,
+        top: headerTopValue + 'px',
+      }}
       isFixed={visibleMenu}
     >
       <StyledContainer>

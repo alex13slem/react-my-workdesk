@@ -6,8 +6,12 @@ import styled from 'styled-components';
 import {LayoutWrap} from '../Layout/LayoutWrap';
 import Navbar from '../Navbar';
 import {NavBurger, SiteLogoBtn} from '@SpaceX/UI/Buttons';
+import {useScrollElemHide} from 'hooks';
 
-const Header = styled(ComHeader)`
+const Header = styled.header`
+  @media (orientation: portrait) {
+    top: 0;
+  }
   z-index: 100;
   position: sticky;
   /* width: 100vw; */
@@ -33,9 +37,17 @@ const HeaderSpaceX = ({className}) => {
   const rootRef = useRef();
   const [showNav, setShowNav] = useState(false);
 
+  const {elemTopValue: headerTopValue} = useScrollElemHide(rootRef, {
+    offsetStep: -1,
+  });
+
   return (
     <HeaderContext.Provider value={{showNav, setShowNav}}>
-      <Header ref={rootRef} className={className}>
+      <Header
+        ref={rootRef}
+        className={className}
+        style={{top: headerTopValue + 'px'}}
+      >
         <Wrap>
           <SiteLogoBtn />
           <NavBurger />
