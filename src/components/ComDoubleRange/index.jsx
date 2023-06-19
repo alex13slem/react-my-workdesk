@@ -1,4 +1,6 @@
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {setMaxLimitValue, setMinLimitValue} from 'utils/doubleRange';
 
 const CustomRange = styled.div`
   --base-size: ${({baseSize}) => baseSize + 'px'};
@@ -74,23 +76,25 @@ const ComDoubleRange = ({
     track: {in: '#c00000', out: '#580000'},
   },
   thumbCSS = {webkit: '', moz: '', ms: ''},
-  setValue = () => {},
-  value = {min: 0, max: 100},
+  onChange = () => {},
+  value,
 }) => {
+  const [currentValue, setCurrentValue] = useState(value);
   const styledRangeBg = {
     background: `
     linear-gradient(
       to right,
-      ${colors.track.out} 0% ${value.min}%, 
-      ${colors.track.in} ${value.min}% ${value.max}%, 
-      ${colors.track.out} ${value.max}% 100%
+      ${colors.track.out} 0% ${currentValue.min}%, 
+      ${colors.track.in} ${currentValue.min}% ${currentValue.max}%, 
+      ${colors.track.out} ${currentValue.max}% 100%
     )`,
   };
 
-  // const styledHandle = {
-  //   marginLeft: `${value.min}%`,
-  //   width: `${value.max - value.min}%`,
-  // };
+  useEffect(() => {
+    setCurrentValue(value);
+  }, [value]);
+
+  // console.log('cvalue', currentValue);
 
   return (
     <CustomRange
@@ -101,17 +105,31 @@ const ComDoubleRange = ({
     >
       <div className="track" style={styledRangeBg}></div>
       <input
-        value={value.min}
-        onChange={(e) => setValue(e, baseSize)}
+        value={currentValue.min}
+        onChange={(e) => {
+          setMinLimitValue(e, currentValue, setCurrentValue);
+        }}
+        onPointerUp={() => {
+          onChange(currentValue);
+        }}
+        onTouchEnd={() => {
+          onChange(currentValue);
+        }}
         type="range"
-        name="min"
         className="min"
       />
       <input
-        value={value.max}
-        onChange={(e) => setValue(e, baseSize)}
+        value={currentValue.max}
+        onChange={(e) => {
+          setMaxLimitValue(e, currentValue, setCurrentValue);
+        }}
+        onPointerUp={() => {
+          onChange(currentValue);
+        }}
+        onTouchEnd={() => {
+          onChange(currentValue);
+        }}
         type="range"
-        name="max"
         className="max"
       />
     </CustomRange>

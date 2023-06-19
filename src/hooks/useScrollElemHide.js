@@ -2,15 +2,13 @@ import {useState} from 'react';
 import {useEffect} from 'react';
 
 export const useScrollElemHide = (
-  ref,
-  settings = {
-    isFixed: false,
-    offsetStep: 0,
-  }
+  elemHeight,
+  settings = {isFixed: false, offsetStep: 0}
 ) => {
-  const elemHeight = ref.current?.scrollHeight;
-  const [currentScrollPos, setCurrentScrollPos] = useState(null);
-  const [prevScrollPos, setPrevScrollPos] = useState(null);
+  const isFixed = settings.isFixed || false;
+  const offsetStep = settings.offsetStep || 0;
+  const [currentScrollPos, setCurrentScrollPos] = useState(0);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [elemTopValue, setElemTopValue] = useState(0);
 
   const handleScroll = () => {
@@ -19,16 +17,16 @@ export const useScrollElemHide = (
 
     const scrollStep = elemTopValue - (currentScrollPos - prevScrollPos);
 
-    if (settings.isFixed || scrollStep > 0) {
+    if (isFixed || scrollStep > 0) {
       setElemTopValue(0);
       return;
     }
     if (scrollStep >= -elemHeight && scrollStep <= 0) {
-      setElemTopValue(scrollStep + settings.offsetStep);
+      setElemTopValue(scrollStep);
       return;
     }
     if (scrollStep < -elemHeight) {
-      setElemTopValue(-elemHeight + settings.offsetStep);
+      setElemTopValue(-elemHeight + offsetStep);
       return;
     }
   };
@@ -40,5 +38,5 @@ export const useScrollElemHide = (
     };
   });
 
-  return {elemTopValue, elemHeight};
+  return elemTopValue;
 };

@@ -1,7 +1,5 @@
-import ComDoubleRange from 'comComponents/ComDoubleRange';
-import {useEffect, useState} from 'react';
+import ComDoubleRange from '@GoCorona/UI/DoubleRange';
 import styled from 'styled-components';
-import {setMaxLimitValue, setMinLimitValue} from 'utils/doubleRange';
 
 const Root = styled.div`
   min-width: 0;
@@ -62,13 +60,13 @@ const Root = styled.div`
 `;
 
 const DoubleRange = ({title = 'Заголовок'}) => {
-  const [filterValue, setFilterValue] = useState({min: 0, max: 100});
-  const [currentValue, setCurrentValue] = useState(filterValue);
+  // const [sliderValue, setSliderValue] = useState({min: 0, max: 100});
 
   // const setLimitedValue = (e) => {
   //   if (isNaN(+e.target.value)) return;
 
   //   const LIMIT = Math.floor(e.target.clientHeight / 3);
+  //   // console.log(e);
 
   //   switch (e.target.name) {
   //     case 'min':
@@ -86,17 +84,13 @@ const DoubleRange = ({title = 'Заголовок'}) => {
   //   }
   // };
 
-  useEffect(() => {
-    setCurrentValue(filterValue);
-  }, [filterValue]);
-
   return (
     <Root>
       <h2 className="title">{title}</h2>
       <ComDoubleRange
         className="slider"
-        value={filterValue}
-        onChange={setFilterValue}
+        // setValue={setLimitedValue}
+        // value={sliderValue}
       />
       <div className="block-value">
         <div className="value">
@@ -104,11 +98,8 @@ const DoubleRange = ({title = 'Заголовок'}) => {
           <input
             type="text"
             name="min"
-            value={currentValue.min}
-            onChangeCapture={(e) => {
-              setMinLimitValue(e, currentValue, setCurrentValue);
-            }}
-            onBlur={() => setFilterValue(currentValue)}
+            // value={sliderValue.min}
+            // onInput={setLimitedValue}
             // onKeyDown={(e) => e.key === 'Enter' && setLimitedValue(e)}
           />
         </div>
@@ -117,12 +108,8 @@ const DoubleRange = ({title = 'Заголовок'}) => {
           <input
             type="text"
             name="max"
-            value={currentValue.max}
-            // readOnly
-            onChangeCapture={(e) => {
-              setMaxLimitValue(e, currentValue, setCurrentValue);
-            }}
-            onBlur={() => setFilterValue(currentValue)}
+            // value={sliderValue.max}
+            // onInput={setLimitedValue}
             // onKeyDown={(e) => e.key === 'Enter' && setLimitedValue(e)}
           />
         </div>

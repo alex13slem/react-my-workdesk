@@ -1,12 +1,13 @@
 import {createContext, useRef, useState} from 'react';
 
-import ComHeader from 'comComponents/ComHeader';
-
 import styled from 'styled-components';
 import {LayoutWrap} from '../Layout/LayoutWrap';
 import Navbar from '../Navbar';
 import {NavBurger, SiteLogoBtn} from '@SpaceX/UI/Buttons';
 import {useScrollElemHide} from 'hooks';
+import {useContext} from 'react';
+import {LayoutContext} from '../Layout';
+import {useEffect} from 'react';
 
 const Header = styled.header`
   @media (orientation: portrait) {
@@ -35,10 +36,17 @@ export const HeaderContext = createContext({
 
 const HeaderSpaceX = ({className}) => {
   const rootRef = useRef();
+  const rootHeight = rootRef.current?.scrollHeight;
   const [showNav, setShowNav] = useState(false);
 
-  const {elemTopValue: headerTopValue} = useScrollElemHide(rootRef, {
+  const {setHeaderHeight} = useContext(LayoutContext);
+
+  const elemTopValue = useScrollElemHide(rootHeight, {
     offsetStep: -1,
+  });
+
+  useEffect(() => {
+    setHeaderHeight(rootHeight);
   });
 
   return (
@@ -46,7 +54,7 @@ const HeaderSpaceX = ({className}) => {
       <Header
         ref={rootRef}
         className={className}
-        style={{top: headerTopValue + 'px'}}
+        style={{top: elemTopValue + 'px'}}
       >
         <Wrap>
           <SiteLogoBtn />

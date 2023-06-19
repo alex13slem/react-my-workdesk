@@ -3,6 +3,7 @@ import HeaderSpaceX from '../Header';
 import styled from 'styled-components';
 import {useSelectorStyle} from 'hooks/useSelectorStyle';
 import TopPanel from '../TopPanel';
+import {createContext, useState} from 'react';
 
 const Body = styled.div`
   position: relative;
@@ -49,6 +50,11 @@ const Body = styled.div`
   }
 `;
 
+export const LayoutContext = createContext({
+  headerHeight: null,
+  setHeaderHeight: () => {},
+});
+
 const Layout = ({className}) => {
   useSelectorStyle(
     ':root',
@@ -58,11 +64,15 @@ const Layout = ({className}) => {
   `
   );
 
+  const [headerHeight, setHeaderHeight] = useState(null);
+
   return (
-    <Body className={className}>
-      <HeaderSpaceX />
-      <Outlet />
-    </Body>
+    <LayoutContext.Provider value={{headerHeight, setHeaderHeight}}>
+      <Body className={className}>
+        <HeaderSpaceX />
+        <Outlet />
+      </Body>
+    </LayoutContext.Provider>
   );
 };
 
