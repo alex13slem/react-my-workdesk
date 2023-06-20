@@ -12,6 +12,10 @@ const Root = styled.aside`
   background-color: #00000036;
   border: 1px solid rgba(152, 147, 147, 0.21);
   backdrop-filter: blur(8px) hue-rotate(338deg);
+
+  @media (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 const AsideFilters = () => {

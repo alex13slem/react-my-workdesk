@@ -46,11 +46,13 @@ export const useDocumentFavicon = (favicon) => {
     }
   };
 
-  const removeIco = () =>
-    !documentFavicon.ico && linkIco && linkIco.parentNode.removeChild(linkIco);
+  const removeIco = () => {
+    !documentFavicon.ico && linkIco?.parentNode?.removeChild(linkIco);
+  };
 
-  const removeSvg = () =>
-    !documentFavicon.svg && linkSvg && linkSvg.parentNode.removeChild(linkSvg);
+  const removeSvg = () => {
+    !documentFavicon.svg && linkSvg?.parentNode?.removeChild(linkSvg);
+  };
 
   useLayoutEffect(() => {
     removeIco();

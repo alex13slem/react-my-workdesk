@@ -11,12 +11,15 @@ const Nav = styled.nav`
   align-items: center;
   gap: 40px;
 
+  transition: opacity 0.5s ease-in-out;
+
   @media (max-width: 1199px) {
     opacity: 0;
     pointer-events: none;
 
     position: fixed;
     inset: 0;
+    height: 100vh;
 
     flex-direction: column;
     justify-content: center;
@@ -28,7 +31,8 @@ const Nav = styled.nav`
       showNav &&
       `opacity: 1;
       pointer-events: all;
-      overflow: hidden;`}
+      overflow: hidden;
+      `}
   }
 `;
 
