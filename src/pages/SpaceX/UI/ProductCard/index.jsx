@@ -103,7 +103,7 @@ const ProductCard = ({className, data, clickOnBuy}) => {
       <div className="front-side">
         <h2 className="name">{data.title}</h2>
         <div className="images">
-          <img src={data.thumbnail} alt="thumbnail" />
+          <img src={data.thumbnail} />
         </div>
         <Rating className="rating" value={data.rating} readOnly />
       </div>

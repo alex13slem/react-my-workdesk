@@ -5,9 +5,8 @@ import {LayoutWrap} from '../Layout/LayoutWrap';
 import Navbar from '../Navbar';
 import {NavBurger, SiteLogoBtn} from '@SpaceX/UI/Buttons';
 import {useScrollElemHide} from 'hooks';
-import {useContext} from 'react';
-import {LayoutContext} from '../Layout';
 import {useEffect} from 'react';
+import {useHeaderValues} from '@SpaceX/store';
 
 const Header = styled.header`
   @media (orientation: portrait) {
@@ -39,22 +38,26 @@ const HeaderSpaceX = ({className}) => {
   const rootHeight = rootRef.current?.scrollHeight;
   const [showNav, setShowNav] = useState(false);
 
-  const {setHeaderHeight} = useContext(LayoutContext);
-
-  const elemTopValue = useScrollElemHide(rootHeight, {
+  const [topValue, reverseTopValue] = useScrollElemHide(rootHeight, {
     offsetStep: -1,
   });
 
+  const {setReverseTop, setHeight} = useHeaderValues();
+
   useEffect(() => {
-    setHeaderHeight(rootHeight);
-  });
+    setReverseTop(reverseTopValue);
+  }, [reverseTopValue]);
+
+  useEffect(() => {
+    rootHeight && setHeight(rootHeight);
+  }, [rootHeight]);
 
   return (
     <HeaderContext.Provider value={{showNav, setShowNav}}>
       <Header
         ref={rootRef}
         className={className}
-        style={{top: elemTopValue + 'px'}}
+        style={{top: topValue + 'px'}}
       >
         <Wrap>
           <SiteLogoBtn />

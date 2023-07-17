@@ -1,11 +1,12 @@
-import {LayoutContext, LayoutWrap} from '@SpaceX/components/Layout';
-import {useDocumentTitle, useScrollElemHide} from 'hooks';
+import {LayoutWrap} from '@SpaceX/components/Layout';
+import {useDocumentTitle, useFetching} from 'hooks';
 import styled from 'styled-components';
 import Catalog from './sections/Catalog';
 import TopPanel from '../../components/TopPanel';
 import AsideFilters from '@SpaceX/components/AsideFilters';
-import {useEffect, useState} from 'react';
-import {useContext} from 'react';
+import {useEffect} from 'react';
+import {useProductsData} from '@SpaceX/store';
+import PostService from '@SpaceX/services/ProductService';
 
 const Main = styled.main`
   flex: 1 1 auto;
@@ -25,38 +26,41 @@ const Wrap = styled(LayoutWrap)`
 const Products = ({className}) => {
   useDocumentTitle('alex13slem | SpaceX | Каталог');
 
-  // const [currentScrollPos, setCurrentScrollPos] = useState(0);
-  // const [prevScrollPos, setPrevScrollPos] = useState(0);
-  // const [topValue, setTopValue] = useState(0);
-  // const heightElem = 91;
+  const {products, limit, skip, setProducts, setLimit, setSkip, setIsLoading} =
+    useProductsData();
 
-  // const handleScroll = () => {
-  //   setCurrentScrollPos(window.scrollY);
-  //   setPrevScrollPos(currentScrollPos);
+  const [fetchPosts, isLoading, postsFetchError] = useFetching(async () => {
+    const data = await PostService.getProducts({
+      limit,
+      skip,
+    });
 
-  //   if (currentScrollPos < prevScrollPos) {
-  //     setTopValue(heightElem)
-  //   }
-  // };
+    setProducts(data.products);
+    setLimit(data.limit);
+    setSkip(data.skip);
+  });
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    fetchPosts();
+  }, [products.length, limit, skip]);
 
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // });
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
 
-  const {headerHeight} = useContext(LayoutContext);
-  const elemTopValue = useScrollElemHide(headerHeight);
+  useEffect(() => {
+    postsFetchError &&
+      console.error('SpaceX: Fetching product', postsFetchError);
+  }, [postsFetchError]);
 
   return (
     <>
       <TopPanel />
       <Main>
         <Wrap>
-          <AsideFilters />
-          <Catalog />
+          <AsideFilters data={products} />
+
+          <Catalog data={products} />
         </Wrap>
       </Main>
     </>

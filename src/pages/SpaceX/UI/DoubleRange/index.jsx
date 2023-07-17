@@ -105,7 +105,7 @@ const DoubleRange = ({title = 'Заголовок'}) => {
             type="text"
             name="min"
             value={currentValue.min}
-            onChangeCapture={(e) => {
+            onChange={(e) => {
               setMinLimitValue(e, currentValue, setCurrentValue);
             }}
             onBlur={() => setFilterValue(currentValue)}
@@ -119,7 +119,7 @@ const DoubleRange = ({title = 'Заголовок'}) => {
             name="max"
             value={currentValue.max}
             // readOnly
-            onChangeCapture={(e) => {
+            onChange={(e) => {
               setMaxLimitValue(e, currentValue, setCurrentValue);
             }}
             onBlur={() => setFilterValue(currentValue)}

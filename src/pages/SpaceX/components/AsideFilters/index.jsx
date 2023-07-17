@@ -1,9 +1,10 @@
 import DoubleRange from '@SpaceX/UI/DoubleRange';
+import {useHeaderValues} from '@SpaceX/store';
 import styled from 'styled-components';
 
 const Root = styled.aside`
   position: sticky;
-  top: 86px;
+  /* top: 86px; */
   flex: 0 0 314px;
   height: 100vh;
 
@@ -19,8 +20,14 @@ const Root = styled.aside`
 `;
 
 const AsideFilters = () => {
+  const {reverseTop, height, margin} = useHeaderValues();
   return (
-    <Root>
+    <Root
+      style={{
+        top: `${reverseTop + height}px`,
+        height: `calc(100vh - ${reverseTop + height + margin}px)`,
+      }}
+    >
       <DoubleRange title="Цена" />
     </Root>
   );
