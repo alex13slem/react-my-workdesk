@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import styled from 'styled-components';
 import SiteNavigate from '../SiteNavigate';
 import ButtonGoCorona from '@GoCorona/UI/ButtonGoCorona';
@@ -34,10 +34,10 @@ const StyledContainer = styled(Container)`
 
 const Header = ({className}) => {
   const rootRef = useRef(null);
-  const rootHeight = rootRef.current?.scrollHeight;
+  const rootHeight = rootRef.current?.offsetHeight;
   const [visibleMenu, setVisibleMenu] = useState(false);
 
-  const headerTopValue = useScrollElemHide(rootHeight, {
+  const [headerTopValue] = useScrollElemHide(rootHeight, {
     isFixed: visibleMenu,
   });
 

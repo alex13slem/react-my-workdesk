@@ -35,7 +35,8 @@ export const HeaderContext = createContext({
 
 const HeaderSpaceX = ({className}) => {
   const rootRef = useRef();
-  const rootHeight = rootRef.current?.scrollHeight;
+  const rootHeight = rootRef.current?.offsetHeight;
+
   const [showNav, setShowNav] = useState(false);
 
   const [topValue, reverseTopValue] = useScrollElemHide(rootHeight, {

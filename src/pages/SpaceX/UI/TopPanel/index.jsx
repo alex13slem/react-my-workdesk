@@ -53,7 +53,7 @@ const Wrap = styled(LayoutWrap)``;
 
 const TopPanel = ({className, children, style}) => {
   const {isLoading} = useProductsData();
-  console.log(isLoading);
+  // console.log(isLoading);
   return (
     <Root className={className} style={style} isLoading={isLoading}>
       <Wrap>{children}</Wrap>
