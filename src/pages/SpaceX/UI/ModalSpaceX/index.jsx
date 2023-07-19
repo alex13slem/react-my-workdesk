@@ -1,4 +1,4 @@
-import {Backdrop, Window} from 'comComponents/ComModal';
+import {Backdrop, Window} from 'components/ComModal';
 import styled, {css} from 'styled-components';
 
 const StyledBackdrop = styled(Backdrop)`

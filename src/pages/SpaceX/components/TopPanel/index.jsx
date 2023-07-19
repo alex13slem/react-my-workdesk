@@ -1,7 +1,7 @@
 import {Crumb} from '@SpaceX/UI/Buttons';
 import UITopPanel from '@SpaceX/UI/TopPanel';
 import {useHeaderValues} from '@SpaceX/store';
-import ComBreadcrumbs from 'comComponents/ComBredcrumbs';
+import ComBreadcrumbs from 'components/ComBredcrumbs';
 import {useLocation} from 'react-router-dom';
 
 const TopPanel = ({className}) => {

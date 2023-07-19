@@ -1,5 +1,5 @@
 import {SVGSiteLogo} from '@GoCorona/UI/SVGimages';
-import ComBtn from 'comComponents/ComBtn';
+import ComBtn from 'components/ComBtn';
 import styled from 'styled-components';
 
 const Btn = styled(ComBtn)`

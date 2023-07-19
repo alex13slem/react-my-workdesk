@@ -1,4 +1,4 @@
-import ComDoubleRange from 'comComponents/ComDoubleRange';
+import ComDoubleRange from 'components/ComDoubleRange';
 import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {setMaxLimitValue, setMinLimitValue} from 'utils/doubleRange';

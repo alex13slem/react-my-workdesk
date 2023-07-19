@@ -1,4 +1,4 @@
-import Typed from 'comComponents/Typed';
+import Typed from 'components/Typed';
 import css from './style.module.scss';
 
 export const Google = () => {

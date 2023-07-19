@@ -1,4 +1,4 @@
-import ComBtn from 'comComponents/ComBtn';
+import ComBtn from 'components/ComBtn';
 import {SVGIconVideo} from '../SVGimages';
 import styled from 'styled-components';
 

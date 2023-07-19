@@ -1,13 +1,26 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src/",
+    "baseUrl": ".",
     "paths": {
-      "comComponents/*": ["./components/*"],
-      "utils/*": ["./utils/*"],
-      "@GoCorona/*": ["./pages/GoCorona/*"],
-      "@Home/*": ["./pages/Home/*"],
-      "@NotFound/*": ["./pages/NotFound/*"],
-      "@SpaceX/*": ["./pages/SpaceX/*"]
+      "components/*": ["src/components/*"],
+      "hooks/*": ["src/hooks/*"],
+      "data/*": ["src/data/*"],
+      "utils/*": ["src/utils/*"],
+      "public/*": ["public/*"],
+      "@GoCorona/*": ["src/pages/GoCorona/*"],
+      "@Home/*": ["src/pages/Home/*"],
+      "@NotFound/*": ["src/pages/NotFound/*"],
+      "@SpaceX/*": ["src/pages/SpaceX/*"],
+      "@/*": ["./src/*", "./dist/*", ""]
     }
+    // "paths": {
+    //   "components/*": ["./components/*"],
+    //   "utils/*": ["./utils/*"],
+    //   "@GoCorona/*": ["./pages/GoCorona/*"],
+    //   "@Home/*": ["./pages/Home/*"],
+    //   "@NotFound/*": ["./pages/NotFound/*"],
+    //   "@SpaceX/*": ["./pages/SpaceX/*"],
+    //   "/": ["./"]
+    // }
   }
 }

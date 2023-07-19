@@ -1,6 +1,6 @@
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {SwiperButtonNext, SwiperButtonPrev} from 'comComponents/swiper';
+import {SwiperButtonNext, SwiperButtonPrev} from 'components/swiper';
 import styled, {css} from 'styled-components';
 
 const commonCSS = css`

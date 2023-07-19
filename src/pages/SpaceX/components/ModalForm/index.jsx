@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import {errorsType, regExp} from 'utils/validate';
 
-import ComForm from 'comComponents/ComForm';
+import ComForm from 'components/ComForm';
 import ModalSpaceX from '@SpaceX/UI/ModalSpaceX';
 import {useContext} from 'react';
 import {ModalContext} from '@SpaceX/store';

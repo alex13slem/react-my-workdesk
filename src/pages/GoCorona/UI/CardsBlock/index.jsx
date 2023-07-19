@@ -1,4 +1,4 @@
-import ComImage from 'comComponents/ComImage';
+import ComImage from 'components/ComImage';
 import styled from 'styled-components';
 import CardsContainer from './CardsContainer';
 import Card from './Card';

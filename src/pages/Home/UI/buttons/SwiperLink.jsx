@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {useSwiperSlide} from '/node_modules/swiper/react/swiper-react.js';
-import ComBtn from 'comComponents/ComBtn';
+import ComBtn from 'components/ComBtn';
 
 const Link = styled(ComBtn)`
   @keyframes btn-go {

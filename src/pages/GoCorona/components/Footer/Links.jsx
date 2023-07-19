@@ -1,5 +1,5 @@
 import {SVGAppleLogo, SVGGoogleLogo} from '@GoCorona/UI/SVGimages/FirmLogos';
-import ComBtn from 'comComponents/ComBtn';
+import ComBtn from 'components/ComBtn';
 import styled from 'styled-components';
 
 const Root = styled.div`
