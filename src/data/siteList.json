@@ -4,13 +4,13 @@
     "name": "GoCorona",
     "tech": "React",
     "purpose": "blog",
-    "link": "/gocorona"
+    "link": "https://go-corona-dusky.vercel.app/"
   },
   {
     "id": 2,
     "name": "SpaceX",
     "tech": "React",
     "purpose": "ecommerce",
-    "link": "/spacex"
+    "link": "/#/spacex"
   }
 ]
