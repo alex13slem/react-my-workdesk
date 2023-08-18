@@ -25,10 +25,10 @@ const Home = ({className}) => {
   );
   return (
     <Main className={className}>
-      <SectionGetStarted />
+      {/* <SectionGetStarted />
       <SectionStaySafe />
       <SectionExperts />
-      <SectionHealthCare />
+      <SectionHealthCare /> */}
     </Main>
   );
 };
